@@ -41,4 +41,9 @@ export class UserService {
         catchError(this.handleError<User>(`getUser id=${id}`))
       );
   }
+  searchUsers(term: string): Observable<User[]> {
+    if(!term.trim()) {
+      return of([]);
+    }
+  }
 }
