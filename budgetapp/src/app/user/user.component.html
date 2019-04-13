@@ -1,3 +1,17 @@
-<p>
-  user works!
-</p>
+<!--<div *ngIf="user">-->
+<!--  <h2>{{user.username | uppercase}} Details</h2>-->
+<!--  <div><span>id: </span>{{user.id}}</div>-->
+<!--  <div>-->
+<!--    <label>first name:-->
+<!--    <input [(ngModel)]="user.firstName" placeholder="first name"/>-->
+<!--    </label>-->
+<!--  </div>-->
+<!--</div>-->
+
+<ul class="users">
+  <li *ngFor="let user of users">
+    <a routerLink="/{{user.id}}">
+      <span class="badge">{{user.id}} {{user.firstName}} {{user.username}} {{user.lastName}}</span>
+    </a>
+  </li>
+</ul>
