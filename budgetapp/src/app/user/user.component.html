@@ -1,17 +1,28 @@
-<!--<div *ngIf="user">-->
-<!--  <h2>{{user.username | uppercase}} Details</h2>-->
-<!--  <div><span>id: </span>{{user.id}}</div>-->
-<!--  <div>-->
-<!--    <label>first name:-->
-<!--    <input [(ngModel)]="user.firstName" placeholder="first name"/>-->
-<!--    </label>-->
-<!--  </div>-->
-<!--</div>-->
-
+<h2>USERS</h2>
 <ul class="users">
-  <li *ngFor="let user of users">
-    <a routerLink="/{{user.id}}">
-      <span class="badge">{{user.userName}}</span>
+  <li *ngFor="let user of users"
+      [class.selected]="user === selectedUser"
+      (click)="onSelect(user)">
+    <a routerLink="user/{{user.id}}">
+    <span class="badge">{{user.id}}</span> {{user.userName}}
     </a>
   </li>
 </ul>
+
+<div *ngIf="selectedUser">
+
+  <h2>{{selectedUser.userName | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedUser.id}}</div>
+  <div><span>name: </span>{{selectedUser.firstName}} {{selectedUser.lastName}}</div>
+
+</div>
+
+<!--<ul class="users">-->
+<!--  <li *ngFor="let user of users">-->
+<!--    -->
+<!--      <span class="badge">{{user.userName}}</span>-->
+<!--    </a>-->
+<!--  </li>-->
+<!--</ul>-->
+
+

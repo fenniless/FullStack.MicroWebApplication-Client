@@ -9,6 +9,7 @@ import {UserService} from '../user.service';
 })
 export class UserComponent implements OnInit {
   users: User[];
+  selectedUser: User;
 
   @Input() user: User;
   constructor(private userService: UserService) {
@@ -20,5 +21,8 @@ export class UserComponent implements OnInit {
 
   getUsers(): void {
     this.userService.getUsers().subscribe(users => this.users = users);
+  }
+  onSelect(user: User): void {
+    this.selectedUser = user;
   }
 }

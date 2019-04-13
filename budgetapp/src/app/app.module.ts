@@ -10,6 +10,8 @@ import { UserComponent } from './user/user.component';
 // import { TransactionComponent } from './transaction/transaction.component';
 // import { TransactionDetailComponent } from './transaction-detail/transaction-detail.component';
 import { MessagesComponent } from './messages/messages.component';
+import { UserSearchComponent } from './user-search/user-search.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { MessagesComponent } from './messages/messages.component';
     UserComponent,
     // TransactionComponent,
     // TransactionDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    UserSearchComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
