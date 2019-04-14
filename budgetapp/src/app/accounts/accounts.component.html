@@ -1,3 +1,18 @@
-<p>
-  accounts works!
-</p>
+<h2>Accounts</h2>
+<ul class="accounts">
+  <li *ngFor="let user of accounts"
+      [class.selected]="account === selectedAccount"
+      (click)="onSelect(account)">
+    <a routerLink="account/{{account.id}}">
+      <span class="badge">{{account.id}}</span> {{account.balance}}
+    </a>
+  </li>
+</ul>
+
+<div *ngIf="selectedAccount">
+
+  <h2>{{selectedAccount.name | uppercase}} Details</h2>
+  <div><span>Balance: </span>{{selectedAccount.balance}}</div>
+  <div><span>Account: </span>{{selectedAccount.name}} {{selectedAccount.id}}</div>
+
+</div>
