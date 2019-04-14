@@ -1,10 +1,13 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
+<div style="text-align:center" class="container">
+  <h2>
     Welcome to {{ title }}!
-  </h1>
-  <nav>
-    <a routerLink="/users">Users</a>
-  </nav>
+  </h2>
+  <div class="badge">
+    <nav>
+      <a routerLink="/users" class="badge-secondary">Users</a>
+      <a routerLink="/accounts" class="badge-secondary">Accounts</a>
+      <a routerLink="/transactions" class="badge-secondary">Transactions</a>
+    </nav>
+  </div>
 </div>
 <router-outlet></router-outlet>

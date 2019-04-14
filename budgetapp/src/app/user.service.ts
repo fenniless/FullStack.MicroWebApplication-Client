@@ -42,7 +42,7 @@ export class UserService {
       );
   }
   searchUsers(term: string): Observable<User[]> {
-    if(!term.trim()) {
+    if (!term.trim()) {
       return of([]);
     }
   }
