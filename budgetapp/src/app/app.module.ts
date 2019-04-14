@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
-// import { TransactionComponent } from './transaction/transaction.component';
+import { TransactionComponent } from './transaction/transaction.component';
 // import { TransactionDetailComponent } from './transaction-detail/transaction-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { UserSearchComponent } from './user-search/user-search.component';
@@ -18,7 +18,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   declarations: [
     AppComponent,
     UserComponent,
-    // TransactionComponent,
+    TransactionComponent,
     // TransactionDetailComponent,
     MessagesComponent,
     UserSearchComponent,
