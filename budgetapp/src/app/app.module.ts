@@ -13,6 +13,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { UserSearchComponent } from './user-search/user-search.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AccountsComponent } from './accounts/accounts.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MessagesComponent,
     UserSearchComponent,
     UserDetailComponent,
-    DashboardComponent
+    DashboardComponent,
+    AccountsComponent
   ],
   imports: [
     BrowserModule,
