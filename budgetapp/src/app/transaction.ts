@@ -3,7 +3,7 @@ export class Transaction {
   fromAccountId: number;
   toAccountId: number;
   memo: string;
-  transactionType: string;
+  transactionType: number;
   transactionDt: string;
   amount: number;
 
