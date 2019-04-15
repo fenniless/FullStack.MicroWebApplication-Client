@@ -1,10 +1,10 @@
 <h2>Accounts</h2>
 <ul class="accounts">
-  <li *ngFor="let user of accounts"
+  <li *ngFor="let account of accounts"
       [class.selected]="account === selectedAccount"
       (click)="onSelect(account)">
     <a routerLink="account/{{account.id}}">
-      <span class="badge">{{account.id}}</span> {{account.balance}}
+      <span class="badge">{{account.name}}</span> {{account.balance}}
     </a>
   </li>
 </ul>
