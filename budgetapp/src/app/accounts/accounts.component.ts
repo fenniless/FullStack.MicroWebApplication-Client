@@ -17,7 +17,7 @@ export class AccountsComponent implements OnInit {
     this.getAccounts();
   }
   getAccounts(): void {
-    this.accountService.getAccounts().subscribe(accounts => this.accounts = accounts);
+    this.accountService.getAccounts().subscribe(account => this.accounts = account);
   }
   onSelect(account: Account): void {
     this.selectedAccount = account;
