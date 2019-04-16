@@ -1,9 +1,10 @@
 export class Transaction {
-	transaction_id: number;
-	from_account_id: number;
-	to_account_id: number;
-	memo: string;
-	transaction_type: string;
-	transaction_dt: string;
-	amount: number;
+  transactionId: number;
+  fromAccountId: number;
+  toAccountId: number;
+  memo: string;
+  transactionType: string;
+  transactionDt: string;
+  amount: number;
+
 }
