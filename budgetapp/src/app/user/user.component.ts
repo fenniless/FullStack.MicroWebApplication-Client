@@ -10,9 +10,11 @@ import {UserService} from '../user.service';
 export class UserComponent implements OnInit {
   users: User[];
   selectedUser: User;
+  defaultName: string;
 
   @Input() user: User;
   constructor(private userService: UserService) {
+    this.defaultName = 'Users';
   }
 
   ngOnInit() {
@@ -24,5 +26,6 @@ export class UserComponent implements OnInit {
   }
   onSelect(user: User): void {
     this.selectedUser = user;
+    this.defaultName = this.selectedUser.userName;
   }
 }

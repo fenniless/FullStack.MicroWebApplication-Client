@@ -1,18 +1,27 @@
-<h2>Accounts</h2>
-<ul class="accounts">
-  <li *ngFor="let account of accounts"
+<div class="bg-light shadow text-center pt-3 pb-2">
+<h4>Accounts</h4>
+</div>
+<ul class="container-fluid pt-3">
+  <li class="text-center" *ngFor="let account of accounts"
       [class.selected]="account === selectedAccount"
       (click)="onSelect(account)">
-    <a routerLink="account/{{account.id}}">
-      <span class="badge">{{account.name}}</span> {{account.balance}}
+    <a class="text-light" routerLink="account/{{account.id}}">
+      <span class="text-">{{account.name}}</span>
+      <span class="text-muted"><br>${{account.balance}}<br></span>
     </a>
   </li>
 </ul>
 
-<div *ngIf="selectedAccount">
+<div class="text-lg-center text-light pt-3" *ngIf="selectedAccount">
 
-  <h2>{{selectedAccount.name | uppercase}} Details</h2>
-  <div><span>Balance: </span>{{selectedAccount.balance}}</div>
-  <div><span>Account: </span>{{selectedAccount.name}} {{selectedAccount.id}}</div>
+  <h2>{{selectedAccount.name}}</h2>
+  <div><span>Balance: </span>${{selectedAccount.balance}}</div>
+<!--  <div><span>Account Type: </span>{{selectedAccount.accountTypeId}}</div>-->
+  <div><span></span>{{selectedAccount.nickname}}</div>
+  <div><span>Id: </span>{{selectedAccount.id}}</div>
+<!--  <div><span>Institution: </span>{{selectedAccount.institutionName}}</div>-->
+
+
+
 
 </div>
