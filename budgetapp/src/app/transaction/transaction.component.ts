@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import {Transaction} from '../transaction';
 import {TransactionService} from '../transaction.service';
-import {stringify} from 'querystring';
+
+import {User} from '../user';
 
 @Component({
   selector: 'app-transaction',
@@ -11,11 +13,15 @@ import {stringify} from 'querystring';
 })
 export class TransactionComponent implements OnInit {
   transaction: Transaction;
+  userId: number;
   transactions: Transaction[];
 
-  constructor(private transactionService: TransactionService) { }
+  constructor(private transactionService: TransactionService,
+              private route: ActivatedRoute) { }
 
-  ngOnInit() {this.getTransactions();
+  ngOnInit() {
+    this.userId = +this.route.snapshot.paramMap.get('id');
+    this.getTransactions();
   }
 
   getTransactions(): void {
@@ -70,6 +76,6 @@ export class TransactionComponent implements OnInit {
     (document.getElementById('fromAccount') as HTMLInputElement).hidden = true;
     (document.getElementById('toAccount') as HTMLInputElement).hidden = true;
     (document.getElementById('cancelTransaction') as HTMLInputElement).hidden = true;
-    (document.getElementById('transactionType') as HTMLInputElement).hidden = true;
+    (document.getElementById('transactionType') as HTMLInputElement).hidden = false;
   }
 }
