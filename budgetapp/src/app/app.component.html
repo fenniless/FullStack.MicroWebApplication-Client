@@ -1,13 +1,8 @@
-<div style="text-align:center" class="container">
-  <h2>
-    Welcome to {{ title }}!
-  </h2>
-  <div class="badge">
-    <nav>
-      <a routerLink="/users" class="badge-secondary">Users</a>
-      <a routerLink="/accounts" class="badge-secondary">Accounts</a>
-      <a routerLink="/transactions" class="badge-secondary">Transactions</a>
-    </nav>
+<div style="text-align:center" class="dropdown-header shadow bg-secondary">
+  <div class="btn-group" role="group" aria-label="Basic example">
+      <button routerLink="/users" type="button" class="btn-secondary badge-dark btn-lg">Users</button>
+      <button routerLink="/accounts" type="button" class="btn-secondary badge-dark btn-lg">Accounts</button>
+      <button routerLink="/transactions" type="button" class="btn-secondary badge-dark btn-lg">Transactions</button>
   </div>
 </div>
 <router-outlet></router-outlet>
