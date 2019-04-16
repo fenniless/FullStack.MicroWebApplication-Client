@@ -23,8 +23,12 @@
        To Account :
        <input  #newTransactionToAccount />
     </div>
+    <div id="transactionType" hidden="true" >
+      Type :
+      <input  #newTransactionType value="Other" />
+    </div>
   </label>
-  <button id="addTransactionButton" hidden="true" (click)="addDeposit(newTransactionAmount.value, newTransactionMemo.value, newTransactionFromAccount.value,newTransactionToAccount.value ); newTransactionAmount.value=''">
+  <button id="addTransactionButton" hidden="true" (click)="addDeposit(newTransactionAmount.value, newTransactionMemo.value, newTransactionFromAccount.value,newTransactionToAccount.value , newTransactionType.value); newTransactionAmount.value=''">
     ok
   </button>
 
