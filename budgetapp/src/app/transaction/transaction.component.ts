@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {Transaction} from '../transaction';
 import {TransactionService} from '../transaction.service';
+import {stringify} from 'querystring';
 
 @Component({
   selector: 'app-transaction',
@@ -27,9 +28,9 @@ export class TransactionComponent implements OnInit {
   }
 
   // to do: Add rest of fields
-  addDeposit(amount: number, memo: string, fromAccountId: number,  toAccountId: number): void {
+  addDeposit(amount: number, memo: string, fromAccountId: number,  toAccountId: number, transactionType: string): void {
     if (!amount) {return; }
-    this.transactionService.addDepositTransaction({amount, memo, fromAccountId, toAccountId} as Transaction)
+    this.transactionService.addDepositTransaction({amount, memo, fromAccountId, toAccountId, transactionType} as Transaction)
       .subscribe( transaction => {
           this.transactions.push(transaction);
       });
@@ -41,6 +42,7 @@ export class TransactionComponent implements OnInit {
     (document.getElementById('amount') as HTMLInputElement).hidden = false;
     (document.getElementById('memo') as HTMLInputElement).hidden = false;
     (document.getElementById('cancelTransaction') as HTMLInputElement).hidden = false;
+    (document.getElementById('transactionType') as HTMLInputElement).hidden = false;
   }
 
   enableTransfer(): void {
@@ -68,5 +70,6 @@ export class TransactionComponent implements OnInit {
     (document.getElementById('fromAccount') as HTMLInputElement).hidden = true;
     (document.getElementById('toAccount') as HTMLInputElement).hidden = true;
     (document.getElementById('cancelTransaction') as HTMLInputElement).hidden = true;
+    (document.getElementById('transactionType') as HTMLInputElement).hidden = true;
   }
 }
