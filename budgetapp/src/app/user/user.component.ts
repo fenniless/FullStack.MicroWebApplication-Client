@@ -15,7 +15,7 @@ export class UserComponent implements OnInit {
 
   @Input() profile: Profile;
   constructor(private userService: UserService) {
-    this.defaultName = 'Profiles';
+    this.defaultName = 'Users';
   }
 
   ngOnInit() {
