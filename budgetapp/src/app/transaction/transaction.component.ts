@@ -6,6 +6,9 @@ import {Account} from '../account';
 import {TransactionService} from '../transaction.service';
 
 import {Profile} from '../user';
+import {from} from 'rxjs';
+const resetFromForm = 'Select account';
+const resetToForm = 'Select account';
 
 @Component({
   selector: 'app-transaction',
@@ -13,22 +16,38 @@ import {Profile} from '../user';
   styleUrls: ['./transaction.component.css']
 })
 export class TransactionComponent implements OnInit {
+
+
+  constructor(private transactionService: TransactionService,
+              private route: ActivatedRoute) {
+    this.fromAccountName = resetFromForm;
+    this.toAccountName = resetToForm;
+  }
+
   transaction: Transaction;
   userId: number;
   transactions: Transaction[];
   accounts: Account[];
+  accountsTo: Account[];
   selectFromAccount: Account;
-  fromAccount: string;
+  fromAccountName: string;
   fromAccountId: number;
+  selectToAccount: Account;
+  toAccountName: string;
+  toAccountId: number;
 
-  constructor(private transactionService: TransactionService,
-              private route: ActivatedRoute) {
-    this.fromAccount = 'Select account';
+  static enableGeneralButtons(): void {
+    (document.getElementById('addTransactionButton') as HTMLInputElement).hidden = false;
+    (document.getElementById('amount') as HTMLInputElement).hidden = false;
+    (document.getElementById('memo') as HTMLInputElement).hidden = false;
+    (document.getElementById('cancelTransaction') as HTMLInputElement).hidden = false;
+    (document.getElementById('transactionType') as HTMLInputElement).hidden = false;
   }
 
   ngOnInit() {
     this.userId = +this.route.snapshot.paramMap.get('id');
     this.transactionService.getAccountByUserID(this.userId).subscribe(transaction => this.accounts = transaction);
+    this.transactionService.getAccountByUserID(this.userId).subscribe(transaction => this.accountsTo = transaction);
   }
 
   getTransactions(): void {
@@ -38,8 +57,14 @@ export class TransactionComponent implements OnInit {
 
   onSelectFromAccount(account: Account) {
     this.selectFromAccount = account;
-    this.fromAccount = this.selectFromAccount.name;
+    this.fromAccountName = this.selectFromAccount.name;
     this.fromAccountId = this.selectFromAccount.id;
+  }
+
+  onSelectToAccount(account: Account) {
+    this.selectToAccount = account;
+    this.toAccountName = this.selectToAccount.name;
+    this.toAccountId = this.selectToAccount.id;
   }
 
   // to do: Add rest of fields
@@ -47,41 +72,52 @@ export class TransactionComponent implements OnInit {
     if (!amount) {
       return;
     }
-    this.transactionService.addDepositTransaction({amount, memo, fromAccountId, toAccountId, transactionType} as Transaction)
-      .subscribe(transaction => {
-        this.transactions.push(transaction);
-      });
-    // this.transactionService.addDepositTransaction({amount, memo, fromAccountId, toAccountId, transactionType} as Transaction);
-    this.cancelTransaction();
+    if (this.validDeposit()) {
+      this.transactionService.addDepositTransaction({amount, memo, fromAccountId, toAccountId, transactionType} as Transaction)
+        .subscribe(transaction => this.transaction = transaction);
+
+      this.cancelTransaction();
+    }
   }
 
-  enableGeneralButtons(): void {
-    (document.getElementById('addTransactionButton') as HTMLInputElement).hidden = false;
-    (document.getElementById('amount') as HTMLInputElement).hidden = false;
-    (document.getElementById('memo') as HTMLInputElement).hidden = false;
-    (document.getElementById('cancelTransaction') as HTMLInputElement).hidden = false;
-    (document.getElementById('transactionType') as HTMLInputElement).hidden = false;
+  validDeposit(): boolean {
+    if ((document.getElementById('fromAccount') as HTMLInputElement).hidden === false) {
+      if (this.fromAccountName === resetFromForm) {
+        return false;
+      }
+    }
+    if ((document.getElementById('toAccount') as HTMLInputElement).hidden === false) {
+      if (this.toAccountName === resetToForm) {
+        return false;
+      }
+    }
+    return true;
   }
 
   enableTransfer(): void {
-    this.enableGeneralButtons();
+    this.clearFields();
+    this.transactionService.getAccounts().subscribe(transaction => this.accountsTo = transaction);
+    TransactionComponent.enableGeneralButtons();
     (document.getElementById('fromAccount') as HTMLInputElement).hidden = false;
     (document.getElementById('toAccount') as HTMLInputElement).hidden = false;
   }
 
   enableDeposit() {
-    this.enableGeneralButtons();
+    this.clearFields();
+    TransactionComponent.enableGeneralButtons();
     (document.getElementById('toAccount') as HTMLInputElement).hidden = false;
     (document.getElementById('fromAccount') as HTMLInputElement).hidden = true;
   }
 
   enableWithDraw() {
-    this.enableGeneralButtons();
+    this.clearFields();
+    TransactionComponent.enableGeneralButtons();
     (document.getElementById('fromAccount') as HTMLInputElement).hidden = false;
     (document.getElementById('toAccount') as HTMLInputElement).hidden = true;
   }
 
   cancelTransaction() {
+    this.clearFields();
     (document.getElementById('addTransactionButton') as HTMLInputElement).hidden = true;
     (document.getElementById('amount') as HTMLInputElement).hidden = true;
     (document.getElementById('memo') as HTMLInputElement).hidden = true;
@@ -89,5 +125,12 @@ export class TransactionComponent implements OnInit {
     (document.getElementById('toAccount') as HTMLInputElement).hidden = true;
     (document.getElementById('cancelTransaction') as HTMLInputElement).hidden = true;
     (document.getElementById('transactionType') as HTMLInputElement).hidden = true;
+  }
+
+  private clearFields() {
+    this.fromAccountName = resetFromForm;
+    this.fromAccountId = null;
+    this.toAccountName = resetToForm;
+    this.toAccountId = null;
   }
 }

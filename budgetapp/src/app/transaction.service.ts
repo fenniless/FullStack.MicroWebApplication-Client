@@ -52,6 +52,15 @@ export class TransactionService {
     return this.http.get<Account[]>(url);
   }
 
+  getAccounts(): Observable<Account[]> {
+    const url = `${this.accountUrl}`;
+    console.log(url);
+    this.http.get(url).subscribe(data => {
+      console.log(data);
+    });
+    return this.http.get<Account[]>(url);
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);

@@ -23,7 +23,7 @@
           <div class="btn-group" role="group">
             <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false" #newTransactionFromAccount value="{{fromAccountId}}">
-              {{fromAccount}}
+              From: {{fromAccountName}}
             </button>
             <div class="dropdown-menu" aria-labelledby="fromAccountbtn" id="fromAccountdrp">
               <a *ngFor="let account of accounts" [class.selected]="account === selectFromAccount"
@@ -33,20 +33,38 @@
           </div>
         </div>
 
-        <!--        <div id="fromAccount" hidden="true">-->
-        <!--          From Account :-->
-        <!--          <input #newTransactionFromAccount/>-->
-        <!--        </div>-->
-
-        <div id="toAccount" hidden="true">
-          To Account :
-          <input #newTransactionToAccount/>
+        <div id="toAccount" hidden="true" class="bg-light shadow text-center pt-3 pb-3">
+          <div class="btn-group" role="group">
+            <button id="btnGroupDrop2" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false" #newTransactionToAccount value="{{toAccountId}}">
+              To: {{toAccountName}}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="fromAccountbtn" id="toAccountdrp">
+              <a *ngFor="let account of accountsTo" [class.selected]="account === selectToAccount"
+                 (click)="onSelectToAccount(account)" class="dropdown-item">{{account.name}}
+                | {{account.nickname}}</a>
+            </div>
+          </div>
         </div>
+<!--        <div id="typeAccount" hidden="true" class="bg-light shadow text-center pt-3 pb-3">-->
+<!--          <div class="btn-group" role="group">-->
+<!--            <button id="btnGroupDrop" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"-->
+<!--                    aria-haspopup="true" aria-expanded="false" #transactionType value="{{transactionTypeId}}">-->
+<!--              To: {{transactionTypeId}}-->
+<!--            </button>-->
+<!--            <div class="dropdown-menu" aria-labelledby="transactionTypebtn" id="transactionTypedrp">-->
+<!--              <a *ngFor="let transcationType of transcationTypes" [class.selected]="transcationType === selectTransactionType"-->
+<!--                 (click)="onSelectGetType(transcationType)" class="dropdown-item">{{transcationTypes.description}}</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+
         <div id="transactionType" hidden="true">
           Type :
           <input #newTransactionType value="Other"/>
         </div>
       </label>
+      <p></p>
       <button id="addTransactionButton" hidden="true"
               (click)="addDeposit(newTransactionAmount.value, newTransactionMemo.value, newTransactionFromAccount.value,newTransactionToAccount.value , newTransactionType.value); newTransactionAmount.value=''">
         ok
