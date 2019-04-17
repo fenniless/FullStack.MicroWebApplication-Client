@@ -2,16 +2,16 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
-import {User} from './user';
+import {Profile} from './user';
 import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private userUrl = 'http://localhost:8080/budget/user';
+  private userUrl = 'https://budgetapp-server.herokuapp.com/budget/profile';
   private log(message: string) {
-    this.messageService.add(`HeroService: ${message}`);
+    this.messageService.add(`ProfileService: ${message}`);
   }
 
   constructor(private http: HttpClient,
@@ -19,11 +19,11 @@ export class UserService {
   ) {
   }
 
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.userUrl)
+  getUsers(): Observable<Profile[]> {
+    return this.http.get<Profile[]>(this.userUrl)
       .pipe(
         tap(_ => this.log('User Data')),
-        catchError(this.handleError<User[]>('getUsers', []))
+        catchError(this.handleError<Profile[]>('getUsers', []))
       );
   }
   private handleError<T>(operation = 'operation', result?: T) {
@@ -33,15 +33,15 @@ export class UserService {
       return of(result as T);
     };
   }
-  getUser(id: number): Observable<User> {
+  getUser(id: number): Observable<Profile> {
     const url = `${this.userUrl}/{id}`;
-    return this.http.get<User>(url)
+    return this.http.get<Profile>(url)
       .pipe(
-        tap(_ => this.log(`fetched user id=${id}`)),
-        catchError(this.handleError<User>(`getUser id=${id}`))
+        tap(_ => this.log(`fetched profile id=${id}`)),
+        catchError(this.handleError<Profile>(`getUser id=${id}`))
       );
   }
-  searchUsers(term: string): Observable<User[]> {
+  searchUsers(term: string): Observable<Profile[]> {
     if (!term.trim()) {
       return of([]);
     }
