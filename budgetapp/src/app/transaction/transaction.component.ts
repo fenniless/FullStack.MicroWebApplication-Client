@@ -7,8 +7,10 @@ import {TransactionService} from '../transaction.service';
 
 import {Profile} from '../user';
 import {from} from 'rxjs';
-const resetFromForm = 'Select account';
-const resetToForm = 'Select account';
+import {Transactiontype} from '../transactiontype';
+const resetFromForm = 'Select account :';
+const resetToForm = 'Select account :';
+const transactionTypeForm = 'Select type :';
 
 @Component({
   selector: 'app-transaction',
@@ -22,6 +24,7 @@ export class TransactionComponent implements OnInit {
               private route: ActivatedRoute) {
     this.fromAccountName = resetFromForm;
     this.toAccountName = resetToForm;
+    this.transactionTypeName = transactionTypeForm;
   }
 
   transaction: Transaction;
@@ -35,6 +38,10 @@ export class TransactionComponent implements OnInit {
   selectToAccount: Account;
   toAccountName: string;
   toAccountId: number;
+  transactionTypes: Transactiontype[];
+  selectedTransactionType: Transactiontype;
+  transactionTypeName: string;
+  transactionTypeId: number;
 
   static enableGeneralButtons(): void {
     (document.getElementById('addTransactionButton') as HTMLInputElement).hidden = false;
@@ -47,7 +54,8 @@ export class TransactionComponent implements OnInit {
   ngOnInit() {
     this.userId = +this.route.snapshot.paramMap.get('id');
     this.transactionService.getAccountByUserID(this.userId).subscribe(transaction => this.accounts = transaction);
-    this.transactionService.getAccountByUserID(this.userId).subscribe(transaction => this.accountsTo = transaction);
+
+    this.transactionService.getTransactionTypes().subscribe(transaction => this.transactionTypes = transaction);
   }
 
   getTransactions(): void {
@@ -65,6 +73,12 @@ export class TransactionComponent implements OnInit {
     this.selectToAccount = account;
     this.toAccountName = this.selectToAccount.name;
     this.toAccountId = this.selectToAccount.id;
+  }
+
+  onSelectTransactionType(transactionType: Transactiontype) {
+    this.selectedTransactionType = transactionType;
+    this.transactionTypeName = this.selectedTransactionType.description;
+    this.transactionTypeId = this.selectedTransactionType.id;
   }
 
   // to do: Add rest of fields
@@ -91,6 +105,11 @@ export class TransactionComponent implements OnInit {
         return false;
       }
     }
+    if ((document.getElementById('transactionType') as HTMLInputElement).hidden === false) {
+      if (this.transactionTypeName === transactionTypeForm) {
+        return false;
+      }
+    }
     return true;
   }
 
@@ -104,6 +123,7 @@ export class TransactionComponent implements OnInit {
 
   enableDeposit() {
     this.clearFields();
+    this.transactionService.getAccountByUserID(this.userId).subscribe(transaction => this.accountsTo = transaction);
     TransactionComponent.enableGeneralButtons();
     (document.getElementById('toAccount') as HTMLInputElement).hidden = false;
     (document.getElementById('fromAccount') as HTMLInputElement).hidden = true;
@@ -132,5 +152,7 @@ export class TransactionComponent implements OnInit {
     this.fromAccountId = null;
     this.toAccountName = resetToForm;
     this.toAccountId = null;
+    this.transactionTypeName = transactionTypeForm;
+    this.transactionTypeId = null;
   }
 }

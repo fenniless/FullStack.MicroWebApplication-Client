@@ -46,23 +46,24 @@
             </div>
           </div>
         </div>
-<!--        <div id="typeAccount" hidden="true" class="bg-light shadow text-center pt-3 pb-3">-->
-<!--          <div class="btn-group" role="group">-->
-<!--            <button id="btnGroupDrop" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"-->
-<!--                    aria-haspopup="true" aria-expanded="false" #transactionType value="{{transactionTypeId}}">-->
-<!--              To: {{transactionTypeId}}-->
-<!--            </button>-->
-<!--            <div class="dropdown-menu" aria-labelledby="transactionTypebtn" id="transactionTypedrp">-->
-<!--              <a *ngFor="let transcationType of transcationTypes" [class.selected]="transcationType === selectTransactionType"-->
-<!--                 (click)="onSelectGetType(transcationType)" class="dropdown-item">{{transcationTypes.description}}</a>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
 
-        <div id="transactionType" hidden="true">
-          Type :
-          <input #newTransactionType value="Other"/>
+        <div id="transactionType" hidden="true" class="bg-light shadow text-center pt-3 pb-3">
+          <div class="btn-group" role="group">
+            <button id="btnGroupDrop" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false" #newTransactionType value="{{transactionTypeName}}">
+                {{transactionTypeName}}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="transactionTypebtn" id="transactionTypedrp">
+              <a *ngFor="let transactionType of transactionTypes" [class.selected]="transactionType === selectedTransactionType"
+                 (click)="onSelectTransactionType(transactionType)" class="dropdown-item">{{transactionType.description}}</a>
+            </div>
+          </div>
         </div>
+
+<!--        <div id="transactionType" hidden="true">-->
+<!--          Type :-->
+<!--          <input #newTransactionType value="Other"/>-->
+<!--        </div>-->
       </label>
       <p></p>
       <button id="addTransactionButton" hidden="true"
