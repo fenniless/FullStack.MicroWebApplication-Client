@@ -1,8 +1,33 @@
-<div style="text-align:center" class="dropdown-header shadow bg-secondary">
-  <div class="btn-group" role="group" aria-label="Basic example">
-      <button routerLink="/users" type="button" class="btn-secondary badge-dark btn-lg">Users</button>
-      <button routerLink="/accounts" type="button" class="btn-secondary badge-dark btn-lg">Accounts</button>
-    <!--  <button routerLink="/transactions" type="button" class="btn-secondary badge-dark btn-lg">Transactions</button>-->:
+<!--<div style="text-align:center" class="dropdown-header shadow bg-secondary">-->
+<!--  <div class="btn-group" role="group" aria-label="Basic example">-->
+<!--      <button routerLink="/users" type="button" class="btn-secondary badge-dark btn-lg">Users</button>-->
+<!--      <button routerLink="/accounts" type="button" class="btn-secondary badge-dark btn-lg">Accounts</button>-->
+<!--    &lt;!&ndash;  <button routerLink="/transactions" type="button" class="btn-secondary badge-dark btn-lg">Transactions</button>&ndash;&gt;:-->
+<!--  </div>-->
+<!--</div>-->
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-1 shadow">
+  <a class="navbar-brand col-sm-3 col-md- mr-0 text-light" href="">{{title}}</a>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+<nav class="col-md-2 d-none d-md-block bg-light sidebar pt-lg-5">
+  <div class="sidebar-sticky">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+      <app-user></app-user>
+      </li>
+      <li class="nav-item">
+        <H6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span>Accounts</span>
+          <a class="d-flex align-items-center text-muted" href="#">+</a>
+        </H6>
+      <app-accounts></app-accounts>
+      </li>
+    </ul>
+  </div>
+</nav>
+  <div class="">
+<router-outlet></router-outlet>
+  </div>
   </div>
 </div>
-<router-outlet></router-outlet>

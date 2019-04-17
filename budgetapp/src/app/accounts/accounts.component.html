@@ -1,18 +1,15 @@
-<div class="bg-light shadow text-center pt-3 pb-2">
-<h4>Accounts</h4>
-</div>
-<ul class="container-fluid pt-3">
-  <li class="text-center" *ngFor="let account of accounts"
+<ul class="">
+  <li class="" *ngFor="let account of accounts"
       [class.selected]="account === selectedAccount"
       (click)="onSelect(account)">
-    <a class="text-light" routerLink="account/{{account}}">
-      <span class="text-">{{account.name}}</span>
+    <a class="" routerLink="account/{{account}}">
+      <span class="text-dark">{{account.name}}</span>
       <span class="text-muted"><br>${{account.balance}}<br></span>
     </a>
   </li>
 </ul>
 
-<div class="text-lg-center text-light pt-3" *ngIf="selectedAccount">
+<div class="" *ngIf="selectedAccount">
 
   <h2>{{selectedAccount.name}}</h2>
   <div><span>Balance: </span>${{selectedAccount.balance}}</div>

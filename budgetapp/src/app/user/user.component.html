@@ -1,4 +1,4 @@
-<div class="bg-light shadow text-center pt-3 pb-3">
+<div class="bg-light shadow">
   <div class="btn-group" role="group">
     <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       {{defaultName}}
@@ -11,13 +11,14 @@
 </div>
 
 
-<div class="text-lg-center text-light pt-3" *ngIf="selectedUser">
+<div class="text-light pt-3" *ngIf="selectedUser">
 
   <h2>{{selectedUser.userName}} Details</h2>
   <div><span>id: </span>{{selectedUser.id}}</div>
   <div><span>name: </span>{{selectedUser.firstName}} {{selectedUser.lastName}}</div>
 
 </div>
+
 
 <!--<ul class="users">-->
 <!--  <li *ngFor="let user of users">-->
