@@ -1,11 +1,11 @@
-<div *ngIf="user">
+<div *ngIf="profile">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <h2>{{user.userName | uppercase}} Details</h2>
-  <div><span>id: </span>{{user.id}}</div>
+  <h2>{{profile.userName | uppercase}} Details</h2>
+  <div><span>id: </span>{{profile.id}}</div>
   <div class="alert-info">
     <label>name:
-      <input [(ngModel)]="user.userName" placeholder="name"/>
+      <input [(ngModel)]="profile.userName" placeholder="name"/>
     </label>
   </div>
 <!--  <button (click)="save()">Save Changes</button>-->
