@@ -5,7 +5,7 @@ import {Transaction} from '../transaction';
 import {Account} from '../account';
 import {TransactionService} from '../transaction.service';
 
-import {User} from '../user';
+import {Profile} from '../user';
 
 @Component({
   selector: 'app-transaction',
@@ -17,14 +17,18 @@ export class TransactionComponent implements OnInit {
   userId: number;
   transactions: Transaction[];
   accounts: Account[];
+  selectFromAccount: Account;
+  fromAccount: string;
+  fromAccountId: number;
 
   constructor(private transactionService: TransactionService,
               private route: ActivatedRoute) {
+    this.fromAccount = 'Select account';
   }
 
   ngOnInit() {
     this.userId = +this.route.snapshot.paramMap.get('id');
-    this.getTransactions();
+    this.transactionService.getAccountByUserID(this.userId).subscribe(transaction => this.accounts = transaction);
   }
 
   getTransactions(): void {
@@ -32,8 +36,10 @@ export class TransactionComponent implements OnInit {
       .subscribe(transaction => this.transactions = transaction);
   }
 
-  onSelect(singleTransaction: Transaction) {
-    this.transaction = singleTransaction;
+  onSelectFromAccount(account: Account) {
+    this.selectFromAccount = account;
+    this.fromAccount = this.selectFromAccount.name;
+    this.fromAccountId = this.selectFromAccount.id;
   }
 
   // to do: Add rest of fields
@@ -45,12 +51,11 @@ export class TransactionComponent implements OnInit {
       .subscribe(transaction => {
         this.transactions.push(transaction);
       });
-    this.cancelTranscaction();
+    // this.transactionService.addDepositTransaction({amount, memo, fromAccountId, toAccountId, transactionType} as Transaction);
+    this.cancelTransaction();
   }
 
   enableGeneralButtons(): void {
-
-    this.transactionService.getAccountByUserID().subscribe(transaction => this.accounts = transaction);
     (document.getElementById('addTransactionButton') as HTMLInputElement).hidden = false;
     (document.getElementById('amount') as HTMLInputElement).hidden = false;
     (document.getElementById('memo') as HTMLInputElement).hidden = false;
@@ -76,7 +81,7 @@ export class TransactionComponent implements OnInit {
     (document.getElementById('toAccount') as HTMLInputElement).hidden = true;
   }
 
-  cancelTranscaction() {
+  cancelTransaction() {
     (document.getElementById('addTransactionButton') as HTMLInputElement).hidden = true;
     (document.getElementById('amount') as HTMLInputElement).hidden = true;
     (document.getElementById('memo') as HTMLInputElement).hidden = true;

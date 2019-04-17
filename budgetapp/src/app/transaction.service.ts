@@ -24,8 +24,9 @@ export class TransactionService {
   }
 
   private transactionUrl = 'http://localhost:8080/budget/transaction/';
-  private accountUrl = 'http://localhost:8080/budget/account/';
-  private userId = '4';
+  private accountUrl = 'http://localhost:8080/budget/account';
+
+  // private transactionUrl = 'https://budgetapp-server.herokuapp.com/budget/transaction/';
 
   private log(message: string) {
     this.messageService.add(`HeroService: ${message}`);
@@ -42,8 +43,8 @@ export class TransactionService {
       );
   }
 
-  getAccountByUserID(): Observable<Account[]> {
-    const url = `${this.accountUrl}user/${this.userId}`;
+  getAccountByUserID(userId: number): Observable<Account[]> {
+    const url = `${this.accountUrl}/?userId=${userId}`;
     console.log(url);
     this.http.get(url).subscribe(data => {
       console.log(data);

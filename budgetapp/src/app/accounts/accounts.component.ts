@@ -8,16 +8,18 @@ import { AccountService} from '../account.service';
   styleUrls: ['./accounts.component.css']
 })
 export class AccountsComponent implements OnInit {
+  userId: number;
   accounts: Account[];
   selectedAccount: Account;
   @Input() account: Account;
   constructor(private accountService: AccountService) {
+    this.userId = 4;
   }
   ngOnInit() {
     this.getAccounts();
   }
   getAccounts(): void {
-    this.accountService.getAccounts().subscribe(account => this.accounts = account);
+    this.accountService.getAccounts(this.userId).subscribe(account => this.accounts = account);
   }
   onSelect(account: Account): void {
     this.selectedAccount = account;
