@@ -1,0 +1,21 @@
+<div> Tabular-viz works! This is a visual representation of a line chart</div>
+<div style="display: inline-block">
+  <ngx-charts-line-chart>
+    view: any[] = [700, 400];
+
+    // options
+    showXAxis = true;
+    showYAxis = true;
+    gradient = false;
+    showLegend = true;
+    showXAxisLabel = true;
+    xAxisLabel = 'Number';
+    showYAxisLabel = true;
+    yAxisLabel = 'Color Value';
+    timeline = true;
+
+    colorScheme = {
+    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+    };
+  </ngx-charts-line-chart>
+</div>

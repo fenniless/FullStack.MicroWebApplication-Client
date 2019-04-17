@@ -8,12 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { TransactionComponent } from './transaction/transaction.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 // import { TransactionDetailComponent } from './transaction-detail/transaction-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { UserSearchComponent } from './user-search/user-search.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AccountsComponent } from './accounts/accounts.component';
+import { TabularVizComponent } from './tabular-viz/tabular-viz.component';
 
 @NgModule({
   declarations: [
@@ -25,14 +27,16 @@ import { AccountsComponent } from './accounts/accounts.component';
     UserSearchComponent,
     UserDetailComponent,
     DashboardComponent,
-    AccountsComponent
+    AccountsComponent,
+    TabularVizComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxChartsModule
   ],
   providers: [],
 

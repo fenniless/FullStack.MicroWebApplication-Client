@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import {Observable, of} from 'rxjs';
+import {catchError, map, tap} from 'rxjs/operators';
 
 import {Transaction} from './transaction';
 import {MessageService} from './message.service';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
 @Injectable({
@@ -19,24 +19,27 @@ export class TransactionService {
 
 
   constructor(private http: HttpClient,
-              private messageService: MessageService) { }
+              private messageService: MessageService) {
+  }
 
   private transactionUrl = 'http://localhost:8080/budget/transaction/';
+
   private log(message: string) {
     this.messageService.add(`HeroService: ${message}`);
   }
 
   getTransactions(): Observable<Transaction[]> {
-       // console.log('Provider made');
-       // this.http.get('http://localhost:8080/budget/transaction/').subscribe(data => {
-       //   console.log(data); });
+    // console.log('Provider made');
+    // this.http.get('http://localhost:8080/budget/transaction/').subscribe(data => {
+    //   console.log(data); });
 
-       return this.http.get<Transaction[]>(this.transactionUrl)
-         .pipe(
-            tap(_ => this.log('Transaction Data')),
-            catchError(this.handleError<Transaction[]>('getTransactions', []))
-           );
+    return this.http.get<Transaction[]>(this.transactionUrl)
+      .pipe(
+        tap(_ => this.log('Transaction Data')),
+        catchError(this.handleError<Transaction[]>('getTransactions', []))
+      );
   }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
@@ -49,4 +52,12 @@ export class TransactionService {
     return this.http.post<Transaction>(this.transactionUrl, transaction, httpOptions);
 
   }
+  //
+  // getLatestTransactionsByPage(): Observable<Transaction[]> {
+  //   return this.http.get<Transaction[]>(this.transactionUrl)
+  //     .pipe(
+  //       tap(_ => this.log('Transaction Data')),
+  //       catchError(this.handleError<Transaction[]>('getLatestTransactions', []))
+  //     );
+  // }
 }
