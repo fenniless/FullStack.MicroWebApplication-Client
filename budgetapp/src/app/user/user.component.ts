@@ -11,6 +11,7 @@ export class UserComponent implements OnInit {
   users: User[];
   selectedUser: User;
   defaultName: string;
+  userId: number;
 
   @Input() user: User;
   constructor(private userService: UserService) {
@@ -27,5 +28,6 @@ export class UserComponent implements OnInit {
   onSelect(user: User): void {
     this.selectedUser = user;
     this.defaultName = this.selectedUser.userName;
+    this.userId = this.selectedUser.id;
   }
 }
