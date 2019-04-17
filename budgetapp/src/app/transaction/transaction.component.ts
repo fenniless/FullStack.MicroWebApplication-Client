@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import {Transaction} from '../transaction';
 import {TransactionService} from '../transaction.service';
 
-import {User} from '../user';
+import {Profile} from '../user';
 
 @Component({
   selector: 'app-transaction',
