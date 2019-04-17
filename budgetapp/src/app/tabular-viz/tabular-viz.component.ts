@@ -8,6 +8,7 @@ import {TransactionService} from '../transaction.service';
   styleUrls: ['./tabular-viz.component.css']
 })
 export class TabularVizComponent implements OnInit {
+  title = 'Transactions Table';
   transaction: Transaction;
   transactions: Transaction[];
 
@@ -17,34 +18,12 @@ export class TabularVizComponent implements OnInit {
   constructor(private transactionService: TransactionService) {
   }
 
+  // arrTransactions: string [];
+
   public columns = [
-    {
-      prop: 'transactionId', // prop will bind to the json property
-      name: 'Transaction ID' // You can define the name here
-      // ( Column label. If none specified, it will use the prop value and decamelize it. )
-    },
-    {
-      prop: 'fromAccountId',
-      name: 'From'
-    },
-    {
-      prop: 'toAccountId',
-      name: 'To'
-    },
-    {
-      prop: 'memo',
-      name: 'Memo'
-    },
     {
       prop: 'amount',
       name: 'Amount'
-    },
-    {
-      series: [
-        {
-          description: 'Rent',
-          id: 1
-        }]
     },
     {
       prop: 'transactionDt',
@@ -52,7 +31,7 @@ export class TabularVizComponent implements OnInit {
     }
   ];
 
-  view: any[] = [800, 400];
+  // view: any[] = [800, 400];
 
   // options for the chart
   showXAxis = true;
@@ -78,7 +57,7 @@ export class TabularVizComponent implements OnInit {
   doughnut = false;
 
   ngOnInit() {
-      // this.getLatestTransactionsByPage();
+    // this.getLatestTransactionsByPage();
   }
 
   // getTransactions(): void {
