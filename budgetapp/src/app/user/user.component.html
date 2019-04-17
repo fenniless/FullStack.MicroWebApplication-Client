@@ -5,7 +5,7 @@
     </button>
     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
       <a *ngFor="let user of users" [class.selected]="user === selectedUser"
-         (click)="onSelect(user)" class="dropdown-item" routerLink="user/{{user.id}}">{{user.userName}}</a>
+      (click)="onSelect(user)" class="dropdown-item" routerLink="/transaction/{{user.id}}">{{user.userName}}</a>
     </div>
   </div>
 </div>

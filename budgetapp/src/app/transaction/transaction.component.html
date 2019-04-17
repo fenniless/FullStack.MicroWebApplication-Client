@@ -7,6 +7,9 @@
   <button (click)="enableTransfer()"> Transfer </button>
   <p>
   <label>
+    <div >
+       User: {{userId}}
+    </div>
     <div id="amount" hidden="true">
       Amount :
       <input  type="number" value="0.01" #newTransactionAmount />
@@ -19,9 +22,9 @@
       From Account :
       <input #newTransactionFromAccount />
     </div>
-    <div id="toAccount" hidden="true">
+    <div id="toAccount" hidden="true" >
        To Account :
-       <input  #newTransactionToAccount />
+       <input  #newTransactionToAccount/>
     </div>
     <div id="transactionType" hidden="true" >
       Type :
