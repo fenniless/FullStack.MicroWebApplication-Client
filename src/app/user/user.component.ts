@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Profile} from '../user';
+import {User} from '../user';
 import {UserService} from '../user.service';
 
 @Component({
@@ -8,12 +8,12 @@ import {UserService} from '../user.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  profiles: Profile[];
-  selectedProfile: Profile;
+  users: User[];
+  selectedUser: User;
   defaultName: string;
   userId: number;
 
-  @Input() profile: Profile;
+  @Input() user: User;
   constructor(private userService: UserService) {
     this.defaultName = 'Users';
   }
@@ -23,11 +23,11 @@ export class UserComponent implements OnInit {
   }
 
   getUsers(): void {
-    this.userService.getUsers().subscribe(profile => this.profiles = profile);
+    this.userService.getUsers().subscribe(users => this.users = users);
   }
-  onSelect(profile: Profile): void {
-    this.selectedProfile = profile;
-    this.defaultName = this.selectedProfile.userName;
-    this.userId = this.selectedProfile.id;
+  onSelect(user: User): void {
+    this.selectedUser = user;
+    this.defaultName = this.selectedUser.userName;
+    this.userId = this.selectedUser.id;
   }
 }

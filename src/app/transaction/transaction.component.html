@@ -1,79 +1,43 @@
+
 <div class="text-lg-center text-light pt-3">
-  <h2>Transactions</h2>
-  <div>
-    <button (click)="enableDeposit()"> Deposit</button>
-    <button (click)="enableWithDraw()"> Withdraw</button>
-    <button (click)="enableTransfer()"> Transfer</button>
-    <p>
-      <label>
-        <div>
-          User: {{userId}}
-        </div>
+<h2>Transactions</h2>
+<div>
+  <button (click)="enableDeposit()"> Deposit </button>
+  <button (click)="enableWithDraw()"> Withdraw </button>
+  <button (click)="enableTransfer()"> Transfer </button>
+  <p>
+  <label>
+    <div >
+       User: {{userId}}
+    </div>
+    <div id="amount" hidden="true">
+      Amount :
+      <input  type="number" value="0.01" #newTransactionAmount />
+    </div>
+    <div id="memo" hidden="true">
+      Memo :
+      <input #newTransactionMemo />
+    </div>
+    <div id="fromAccount" hidden="true">
+      From Account :
+      <input #newTransactionFromAccount />
+    </div>
+    <div id="toAccount" hidden="true" >
+       To Account :
+       <input  #newTransactionToAccount/>
+    </div>
+    <div id="transactionType" hidden="true" >
+      Type :
+      <input  #newTransactionType value="Other" />
+    </div>
+  </label>
+  <button id="addTransactionButton" hidden="true" (click)="addDeposit(newTransactionAmount.value, newTransactionMemo.value, newTransactionFromAccount.value,newTransactionToAccount.value , newTransactionType.value); newTransactionAmount.value=''">
+    ok
+  </button>
 
-        <div id="amount" hidden="true">
-          Amount :
-          <input type="number" value="0.01" #newTransactionAmount/>
-        </div>
-        <div id="memo" hidden="true">
-          Memo :
-          <input #newTransactionMemo/>
-        </div>
+  <button id="cancelTransaction" hidden="true" (click)="cancelTranscaction()"> Cancel </button>
 
-        <div id="fromAccount" hidden="true" class="bg-light shadow text-center pt-3 pb-3">
-          <div class="btn-group" role="group">
-            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false" #newTransactionFromAccount value="{{fromAccountId}}">
-              From: {{fromAccountName}}
-            </button>
-            <div class="dropdown-menu" aria-labelledby="fromAccountbtn" id="fromAccountdrp">
-              <a *ngFor="let account of accounts" [class.selected]="account === selectFromAccount"
-                 (click)="onSelectFromAccount(account)" class="dropdown-item">{{account.name}}
-                | {{account.nickname}}</a>
-            </div>
-          </div>
-        </div>
-
-        <div id="toAccount" hidden="true" class="bg-light shadow text-center pt-3 pb-3">
-          <div class="btn-group" role="group">
-            <button id="btnGroupDrop2" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false" #newTransactionToAccount value="{{toAccountId}}">
-              To: {{toAccountName}}
-            </button>
-            <div class="dropdown-menu" aria-labelledby="fromAccountbtn" id="toAccountdrp">
-              <a *ngFor="let account of accountsTo" [class.selected]="account === selectToAccount"
-                 (click)="onSelectToAccount(account)" class="dropdown-item">{{account.name}}
-                | {{account.nickname}}</a>
-            </div>
-          </div>
-        </div>
-
-        <div id="transactionType" hidden="true" class="bg-light shadow text-center pt-3 pb-3">
-          <div class="btn-group" role="group">
-            <button id="btnGroupDrop" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false" #newTransactionType value="{{transactionTypeName}}">
-                {{transactionTypeName}}
-            </button>
-            <div class="dropdown-menu" aria-labelledby="transactionTypebtn" id="transactionTypedrp">
-              <a *ngFor="let transactionType of transactionTypes" [class.selected]="transactionType === selectedTransactionType"
-                 (click)="onSelectTransactionType(transactionType)" class="dropdown-item">{{transactionType.description}}</a>
-            </div>
-          </div>
-        </div>
-
-<!--        <div id="transactionType" hidden="true">-->
-<!--          Type :-->
-<!--          <input #newTransactionType value="Other"/>-->
-<!--        </div>-->
-      </label>
-      <p></p>
-      <button id="addTransactionButton" hidden="true"
-              (click)="addDeposit(newTransactionAmount.value, newTransactionMemo.value, newTransactionFromAccount.value,newTransactionToAccount.value , newTransactionType.value); newTransactionAmount.value=''">
-        ok
-      </button>
-
-      <button id="cancelTransaction" hidden="true" (click)="cancelTransaction()"> Cancel</button>
-
-  </div>
+</div>
 </div>
 
 
@@ -81,7 +45,7 @@
 <!--  <li *ngFor="let singleTransaction of transactions"-->
 <!--      [class.selected]="singleTransaction === transaction"-->
 <!--      (click)="onSelect(singleTransaction)">-->
-<!--    <a routerLink="profile/{{singleTransaction.transactionId}}">-->
+<!--    <a routerLink="user/{{singleTransaction.transactionId}}">-->
 <!--      <span class="badge">{{singleTransaction.memo}}</span>  {{singleTransaction.amount}}-->
 <!--    </a>-->
 <!--  </li>-->

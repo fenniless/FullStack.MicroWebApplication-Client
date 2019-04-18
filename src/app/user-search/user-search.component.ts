@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable, Subject} from 'rxjs';
-import {Profile} from '../user';
+import {User} from '../user';
 import {UserService} from '../user.service';
-import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
+import {debounceTime, distinctUntilChanged, switchMap} from "rxjs/operators";
 
 @Component({
   selector: 'app-user-search',
@@ -10,7 +10,7 @@ import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
   styleUrls: ['./user-search.component.css']
 })
 export class UserSearchComponent implements OnInit {
-  users$: Observable<Profile[]>;
+  users$: Observable<User[]>;
   private searchTerms = new Subject<string>();
 
   constructor(private userService: UserService) {

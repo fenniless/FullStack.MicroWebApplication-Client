@@ -4,13 +4,13 @@ import {catchError, tap} from 'rxjs/operators';
 import {Account} from './account';
 import {HttpClient} from '@angular/common/http';
 import {MessageService} from './message.service';
-// import { UserComponent} from './profile/profile.component';
+// import { UserComponent} from './user/user.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
-  private accountUrl = 'https://budgetapp-server.herokuapp.com/budget/account';
+  private accountUrl = 'http://localhost:8080/budget/account';
   // private userId;
   private log(message: string) {
     this.messageService.add(`AccountService: ${message}`);
