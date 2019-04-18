@@ -1,0 +1,47 @@
+<h2 class="ui header">
+  Transactions List
+</h2>
+<hr>
+<div class="ui segment">
+  <sui-dimmer class="inverted" [(isDimmed)]="loading">
+    <div class="ui text loader">Loading</div>
+  </sui-dimmer>
+  <table class="ui celled table">
+    <thead>
+    <tr>
+      <th align="left">TransactionID</th>
+      <th align="left">From</th>
+      <th align="left">To</th>
+      <th align="left">Memo</th>
+      <th align="left">TransactionType</th>
+      <th align="left">TransactionDescription</th>
+      <th align="left">TransactionTypeID</th>
+      <th align="left">TransactionDate</th>
+      <th align="left">Amount</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let t of TransactionsList[]">
+      <td>{{t.transactionId}}</td>
+      <td>{{t.fromAccountId}}</td>
+      <td>{{t.toAccountId}}</td>
+      <td>{{t.memo}}</td>
+      <td>{{t.transactionType}}</td>
+      <td>{{t[1].description}}</td>
+      <td>{{t[1].id}}</td>
+      <td>{{t.transactionDt}}</td>
+      <td>{{t.amount}}</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <th colspan="9">
+        <sui-pagination [collectionSize]="total" [pageSize]="limit" [hasNavigationLinks]="true" [hasBoundaryLinks]="true" [(page)]="selectedPage"
+                        (pageChange)="pageChange()">
+        </sui-pagination>
+      </th>
+    </tr>
+    </tfoot>
+  </table>
+</div>
+
