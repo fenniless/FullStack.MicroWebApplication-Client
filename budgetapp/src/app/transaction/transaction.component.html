@@ -1,3 +1,4 @@
+<script src="transaction.component.ts"></script>
 <div class="text-lg-center text-light pt-3">
   <h2>Transactions</h2>
   <div>
@@ -6,9 +7,9 @@
     <button (click)="enableTransfer()"> Transfer</button>
     <p>
       <label>
-        <div>
-          User: {{userId}}
-        </div>
+<!--        <div>-->
+<!--          User: {{userId}}-->
+<!--        </div>-->
 
         <div id="amount" hidden="true">
           Amount :
@@ -60,10 +61,7 @@
           </div>
         </div>
 
-<!--        <div id="transactionType" hidden="true">-->
-<!--          Type :-->
-<!--          <input #newTransactionType value="Other"/>-->
-<!--        </div>-->
+\
       </label>
       <p></p>
       <button id="addTransactionButton" hidden="true"
@@ -75,17 +73,5 @@
 
   </div>
 </div>
-
-
-<!--<ul class="transactions">-->
-<!--  <li *ngFor="let singleTransaction of transactions"-->
-<!--      [class.selected]="singleTransaction === transaction"-->
-<!--      (click)="onSelect(singleTransaction)">-->
-<!--    <a routerLink="profile/{{singleTransaction.transactionId}}">-->
-<!--      <span class="badge">{{singleTransaction.memo}}</span>  {{singleTransaction.amount}}-->
-<!--    </a>-->
-<!--  </li>-->
-<!--</ul>-->
-
 
 
