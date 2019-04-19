@@ -14,7 +14,6 @@ import {UserSearchComponent} from './user-search/user-search.component';
 import {UserDetailComponent} from './user-detail/user-detail.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {AccountsComponent} from './accounts/accounts.component';
-import {TransactionListComponent} from './transaction-list/transaction-list.component';
 
 @NgModule({
   declarations: [
@@ -26,15 +25,13 @@ import {TransactionListComponent} from './transaction-list/transaction-list.comp
     UserSearchComponent,
     UserDetailComponent,
     DashboardComponent,
-    AccountsComponent,
-    TransactionListComponent,
+    AccountsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule,
-    NgxChartsModule
+    HttpClientModule
   ],
   providers: [],
 
