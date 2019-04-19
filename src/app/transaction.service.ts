@@ -31,7 +31,7 @@ export class TransactionService {
   private transactionTypeURL = `${this.baseURI}transactiontype`;
 
   private log(message: string) {
-    this.messageService.add(`HeroService: ${message}`);
+    this.messageService.add(`TransactionService: ${message}`);
   }
 
   getTransactions(): Observable<Transaction[]> {
@@ -65,6 +65,7 @@ export class TransactionService {
 
   getTransactionTypes(): Observable<Transactiontype[]> {
     const url = `${this.transactionTypeURL}`;
+    console.log(url);
     this.http.get(url).subscribe(data => {
       console.log(data);
     });
@@ -80,7 +81,6 @@ export class TransactionService {
   }
 
   addDepositTransaction(transaction: Transaction) {
-
     return this.http.post<Transaction>(this.transactionUrl, transaction, httpOptions);
 
   }
