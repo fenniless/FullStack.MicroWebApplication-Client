@@ -11,9 +11,10 @@ export class AccountsComponent implements OnInit {
   userId: number;
   accounts: Account[];
   selectedAccount: Account;
+  createAccount: boolean;
   @Input() account: Account;
   constructor(private accountService: AccountService) {
-    this.userId = 4;
+    // this.userId = 4;
   }
   ngOnInit() {
     this.getAccounts();
@@ -23,5 +24,16 @@ export class AccountsComponent implements OnInit {
   }
   onSelect(account: Account): void {
     this.selectedAccount = account;
+  }
+  onClick(): void {
+    this.createAccount = true;
+  }
+  add(name: string, balance: number): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.accountService.addAccount({ name, balance} as Account)
+      .subscribe(account => {
+        this.accounts.push(account);
+      });
   }
 }
