@@ -11,6 +11,7 @@ export class AccountsComponent implements OnInit {
   userId: number;
   accounts: Account[];
   selectedAccount: Account;
+  createAccount: boolean;
   @Input() account: Account;
   constructor(private accountService: AccountService) {
     // this.userId = 4;
@@ -23,6 +24,9 @@ export class AccountsComponent implements OnInit {
   }
   onSelect(account: Account): void {
     this.selectedAccount = account;
+  }
+  onClick(): void {
+    this.createAccount = true;
   }
   add(name: string, balance: number): void {
     name = name.trim();
