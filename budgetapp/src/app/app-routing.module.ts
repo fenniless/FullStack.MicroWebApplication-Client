@@ -6,8 +6,10 @@ import {TransactionComponent} from './transaction/transaction.component';
 
 const routes: Routes = [
   {path: 'profiles', component: UserComponent},
-  {path: 'accounts', component: AccountsComponent},
- {path: 'transactions', component: TransactionComponent},
+  {path: 'profiles/:id', component: UserComponent},
+  {path: 'account', component: AccountsComponent},
+  {path: 'account/:id', component: AccountsComponent},
+  {path: 'transactions', component: TransactionComponent},
   {path: 'transaction/:id', component: TransactionComponent}
 ];
 

@@ -13,7 +13,7 @@ export class AccountsComponent implements OnInit {
   selectedAccount: Account;
   @Input() account: Account;
   constructor(private accountService: AccountService) {
-    this.userId = 4;
+    // this.userId = 4;
   }
   ngOnInit() {
     this.getAccounts();
