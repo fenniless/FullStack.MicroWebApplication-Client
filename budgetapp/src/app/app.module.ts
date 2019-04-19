@@ -22,13 +22,13 @@ import {TransactionListComponent} from './transaction-list/transaction-list.comp
     AppComponent,
     UserComponent,
     TransactionComponent,
-    // TransactionDetailComponent,
     MessagesComponent,
     UserSearchComponent,
     UserDetailComponent,
     DashboardComponent,
     AccountsComponent,
     TransactionListComponent,
+    AccountsComponent
   ],
   imports: [
     BrowserModule,

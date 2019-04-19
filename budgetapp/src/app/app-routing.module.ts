@@ -8,7 +8,7 @@ import {TransactionListComponent} from './transaction-list/transaction-list.comp
 const routes: Routes = [
   {path: 'profiles', component: UserComponent},
   {path: 'accounts', component: AccountsComponent},
-//  {path: 'transactions', component: TransactionComponent},
+
   {path: 'transaction/:id', component: TransactionComponent},
   {path: 'transactions', component: TransactionListComponent}
 ];

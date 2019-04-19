@@ -2,22 +2,23 @@
 <div class="text-lg-center text-light pt-3">
   <h2>Transactions</h2>
   <div>
+    <div  class="bg-light shadow text-center pt-3 pb-3">
     <button (click)="enableDeposit()"> Deposit</button>
     <button (click)="enableWithDraw()"> Withdraw</button>
     <button (click)="enableTransfer()"> Transfer</button>
+    </div>
     <p>
+    </p>
       <label>
 <!--        <div>-->
 <!--          User: {{userId}}-->
 <!--        </div>-->
 
-        <div id="amount" hidden="true">
-          Amount :
-          <input type="number" value="0.01" #newTransactionAmount/>
+        <div id="amount" hidden="true"  class="bg-light shadow text-center pt-3 pb-3">
+          <input id="amountValue "type="number" value="0.01" #newTransactionAmount/>
         </div>
-        <div id="memo" hidden="true">
-          Memo :
-          <input #newTransactionMemo/>
+        <div id="memo" hidden="true" class="bg-light shadow text-center pt-3 pb-3">
+          <input value="Memo" #newTransactionMemo/>
         </div>
 
         <div id="fromAccount" hidden="true" class="bg-light shadow text-center pt-3 pb-3">
@@ -61,15 +62,17 @@
           </div>
         </div>
 
-\
+
       </label>
       <p></p>
+    <div id="finalButtons" hidden="true" class="bg-light shadow text-center pt-3 pb-3">
       <button id="addTransactionButton" hidden="true"
               (click)="addDeposit(newTransactionAmount.value, newTransactionMemo.value, newTransactionFromAccount.value,newTransactionToAccount.value , newTransactionType.value); newTransactionAmount.value=''">
         ok
       </button>
 
       <button id="cancelTransaction" hidden="true" (click)="cancelTransaction()"> Cancel</button>
+    </div>
 
   </div>
 </div>
