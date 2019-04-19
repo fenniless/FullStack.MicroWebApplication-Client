@@ -9,8 +9,8 @@ import { MessageService } from './message.service';
   providedIn: 'root'
 })
 export class UserService {
-   private userUrl = 'https://budgetapp-server.herokuapp.com/budget/profile';
-  // private userUrl = 'http://localhost:8080/budget/profiles';
+  // private userUrl = 'https://budgetapp-server.herokuapp.com/budget/profile';
+  private userUrl = 'http://localhost:8080/budget/profiles';
   private log(message: string) {
     this.messageService.add(`ProfileService: ${message}`);
   }

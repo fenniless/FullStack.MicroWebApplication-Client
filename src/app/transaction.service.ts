@@ -24,14 +24,15 @@ export class TransactionService {
               private messageService: MessageService) {
   }
 
-  private baseURI = 'https://budgetapp-server.herokuapp.com/budget/';
-  // private baseURI = 'http://localhost:8080/budget/';
+  // private baseURI = 'https://budgetapp-server.herokuapp.com/budget/';
+  private baseURI = 'http://localhost:8080/budget/';
   private transactionUrl = `${this.baseURI}transaction/`;
   private accountUrl = `${this.baseURI}account`;
   private transactionTypeURL = `${this.baseURI}transactiontype`;
+  private latestTransactionUrl = `${this.transactionUrl}latest`;
 
   private log(message: string) {
-    this.messageService.add(`TransactionService: ${message}`);
+    this.messageService.add(`HeroService: ${message}`);
   }
 
   getTransactions(): Observable<Transaction[]> {
@@ -42,6 +43,14 @@ export class TransactionService {
       .pipe(
         tap(_ => this.log('Transaction Data')),
         catchError(this.handleError<Transaction[]>('getTransactions', []))
+      );
+  }
+
+  getLatestTransactions(): Observable<Transaction[]> {
+    return this.http.get<Transaction[]>(this.latestTransactionUrl)
+      .pipe(
+        tap(_ => this.log('Recent Transactions')),
+        catchError(this.handleError<Transaction[]>('getLatestTransactions', []))
       );
   }
 
@@ -65,7 +74,6 @@ export class TransactionService {
 
   getTransactionTypes(): Observable<Transactiontype[]> {
     const url = `${this.transactionTypeURL}`;
-    console.log(url);
     this.http.get(url).subscribe(data => {
       console.log(data);
     });
@@ -81,6 +89,7 @@ export class TransactionService {
   }
 
   addDepositTransaction(transaction: Transaction) {
+
     return this.http.post<Transaction>(this.transactionUrl, transaction, httpOptions);
 
   }
