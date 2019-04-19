@@ -24,4 +24,12 @@ export class AccountsComponent implements OnInit {
   onSelect(account: Account): void {
     this.selectedAccount = account;
   }
+  add(name: string, balance: number): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.accountService.addAccount({ name, balance} as Account)
+      .subscribe(account => {
+        this.accounts.push(account);
+      });
+  }
 }

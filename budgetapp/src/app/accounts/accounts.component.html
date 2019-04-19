@@ -13,15 +13,24 @@
 </ul>
 
 <div class="text-lg-center text-light pt-3" *ngIf="selectedAccount">
-
   <h2>{{selectedAccount.name}}</h2>
   <div><span>Balance: </span>${{selectedAccount.balance}}</div>
 <!--  <div><span>Account Type: </span>{{selectedAccount.accountTypeId}}</div>-->
   <div><span></span>{{selectedAccount.nickname}}</div>
   <div><span>Id: </span>{{selectedAccount.id}}</div>
 <!--  <div><span>Institution: </span>{{selectedAccount.institutionName}}</div>-->
+</div>
 
-
-
-
+<div class="text-lg-center text-light pt-3">
+  <h4 class="text-muted">Create New Account</h4>
+  <label>Account Name:
+    <input #accountName />
+  </label>
+  <label>Account Balance:
+    <input #accountBalance />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(account.name); account.name=''">
+    add
+  </button>
 </div>

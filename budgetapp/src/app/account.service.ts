@@ -34,4 +34,9 @@ export class AccountService {
       return of(result as T);
     };
   }
+  addAccount(account: Account): Observable<Account> {
+    return this.http.post<Account>(this.accountUrl, account).pipe(
+      tap((newAccount: Account) => this.log(`added hero w/ id=${newAccount.id}`)),
+      catchError(this.handleError<Account>('addHero')));
+  }
 }
