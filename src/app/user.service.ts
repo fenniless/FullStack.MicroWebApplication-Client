@@ -2,15 +2,15 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
-import {Profile} from './user';
 import { MessageService } from './message.service';
+import { Profile} from './user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-   private userUrl = 'https://budgetapp-server.herokuapp.com/budget/profile';
-  // private userUrl = 'http://localhost:8080/budget/profiles';
+   // private userUrl = 'https://budgetapp-server.herokuapp.com/budget/profile';
+  private userUrl = 'http://localhost:8080/budget/profile';
   private log(message: string) {
     this.messageService.add(`ProfileService: ${message}`);
   }
@@ -19,7 +19,6 @@ export class UserService {
               private messageService: MessageService
   ) {
   }
-
   getUsers(): Observable<Profile[]> {
     return this.http.get<Profile[]>(this.userUrl)
       .pipe(
@@ -35,7 +34,7 @@ export class UserService {
     };
   }
   getUser(id: number): Observable<Profile> {
-    const url = `${this.userUrl}/{id}`;
+    const url = `${this.userUrl}/${id}`;
     return this.http.get<Profile>(url)
       .pipe(
         tap(_ => this.log(`fetched profile id=${id}`)),

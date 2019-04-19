@@ -2,15 +2,19 @@ import { Injectable } from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
 import {Account} from './account';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {MessageService} from './message.service';
 // import { UserComponent} from './profile/profile.component';
 
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
-  private accountUrl = 'https://budgetapp-server.herokuapp.com/budget/account';
+  // private accountUrl = 'https://budgetapp-server.herokuapp.com/budget/account';
+  private accountUrl = 'http://localhost:8080/budget/account';
   // private userId;
   private log(message: string) {
     this.messageService.add(`AccountService: ${message}`);
@@ -32,5 +36,10 @@ export class AccountService {
       console.log(`${operation} failed: ${error.message}`);
       return of(result as T);
     };
+  }
+  addAccount(account: Account): Observable<Account> {
+    return this.http.post<Account>(this.accountUrl, account, httpOptions).pipe(
+      tap((newAccount: Account) => this.log(`added account w/ id=${newAccount.id}`)),
+      catchError(this.handleError<Account>('addAccount')));
   }
 }
