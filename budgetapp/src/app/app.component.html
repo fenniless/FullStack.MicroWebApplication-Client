@@ -5,14 +5,18 @@
 <!--    &lt;!&ndash;  <button routerLink="/transactions" type="button" class="btn-secondary badge-dark btn-lg">Transactions</button>&ndash;&gt;:-->
 <!--  </div>-->
 <!--</div>-->
-<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-1 shadow">
-  <a class="navbar-brand col-sm-3 col-md- mr-0 text-light" href="">{{title}}</a>
-</nav>
+<!--<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-1 shadow">-->
+<!--  <a class="navbar-brand col-sm-3 col-md- mr-0 text-light" href="">{{title}}</a>-->
+<!--</nav>-->
+
 <div class="container-fluid">
   <div class="row">
-<nav class="col-md-2 d-none d-md-block bg-light sidebar pt-lg-5 bg-light">
+<nav class="col-md-2 d-none d-md-block bg-light pt-2 sidebar bg-light">
   <div class="sidebar-sticky">
     <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="navbar-brand col-md- mr-0 text-dark" href="">{{title}}</a>
+      </li>
       <li class="nav-item">
       <app-user></app-user>
       </li>
@@ -28,6 +32,8 @@
 </nav>
   <div class="">
 <router-outlet></router-outlet>
+    <app-transaction></app-transaction>
   </div>
   </div>
+
 </div>

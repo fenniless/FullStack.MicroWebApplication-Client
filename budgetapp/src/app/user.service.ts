@@ -9,7 +9,8 @@ import { MessageService } from './message.service';
   providedIn: 'root'
 })
 export class UserService {
-  private userUrl = 'https://budgetapp-server.herokuapp.com/budget/profile';
+  // private userUrl = 'https://budgetapp-server.herokuapp.com/budget/profile';
+  private userUrl = 'http://localhost:8080/budget/profile';
   private log(message: string) {
     this.messageService.add(`ProfileService: ${message}`);
   }
@@ -34,7 +35,7 @@ export class UserService {
     };
   }
   getUser(id: number): Observable<Profile> {
-    const url = `${this.userUrl}/{id}`;
+    const url = `${this.userUrl}/${id}`;
     return this.http.get<Profile>(url)
       .pipe(
         tap(_ => this.log(`fetched profile id=${id}`)),

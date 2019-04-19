@@ -10,7 +10,8 @@ import {MessageService} from './message.service';
   providedIn: 'root'
 })
 export class AccountService {
-  private accountUrl = 'https://budgetapp-server.herokuapp.com/budget/account';
+  // private accountUrl = 'https://budgetapp-server.herokuapp.com/budget/account';
+  private accountUrl = 'http://localhost:8080/budget/account';
   // private userId;
   private log(message: string) {
     this.messageService.add(`AccountService: ${message}`);
@@ -18,10 +19,9 @@ export class AccountService {
   constructor(private http: HttpClient, private messageService: MessageService) {
     // this.userId = userComponent.userId;
   }
-  getAccounts(userId: number): Observable<Account[]> {
-    const url = `${this.accountUrl}/?userId=${userId}`;
-    return this.http.get<Account[]>(url)
-      .pipe(
+  getAccounts(id: number): Observable<Account[]> {
+    const url = `${this.accountUrl}/${id}`;
+    return this.http.get<Account[]>(url).pipe(
         tap(_ => this.log('Account Data')),
         catchError(this.handleError<Account[]>('getAccounts', []))
       );
