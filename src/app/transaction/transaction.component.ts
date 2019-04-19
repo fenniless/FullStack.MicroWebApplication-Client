@@ -5,8 +5,9 @@ import {Transaction} from '../transaction';
 import {Account} from '../account';
 import {TransactionService} from '../transaction.service';
 
+import {Profile} from '../user';
+import {from} from 'rxjs';
 import {Transactiontype} from '../transactiontype';
-
 const resetFromForm = 'Select account :';
 const resetToForm = 'Select account :';
 const transactionTypeForm = 'Select type :';
@@ -43,12 +44,10 @@ export class TransactionComponent implements OnInit {
   transactionTypeId: number;
 
   static enableGeneralButtons(): void {
-    (document.getElementById('finalButtons') as HTMLInputElement).hidden = false;
     (document.getElementById('addTransactionButton') as HTMLInputElement).hidden = false;
-    (document.getElementById('cancelTransaction') as HTMLInputElement).hidden = false;
-
     (document.getElementById('amount') as HTMLInputElement).hidden = false;
     (document.getElementById('memo') as HTMLInputElement).hidden = false;
+    (document.getElementById('cancelTransaction') as HTMLInputElement).hidden = false;
     (document.getElementById('transactionType') as HTMLInputElement).hidden = false;
   }
 
@@ -56,7 +55,7 @@ export class TransactionComponent implements OnInit {
     this.userId = +this.route.snapshot.paramMap.get('id');
     this.transactionService.getAccountByUserID(this.userId).subscribe(transaction => this.accounts = transaction);
 
-    this.transactionService.getTransactionTypes().subscribe(transactionType => this.transactionTypes = transactionType);
+    this.transactionService.getTransactionTypes().subscribe(transaction => this.transactionTypes = transaction);
   }
 
   getTransactions(): void {
@@ -87,13 +86,12 @@ export class TransactionComponent implements OnInit {
     if (!amount) {
       return;
     }
-    if (!this.validDeposit()) {
-      return;
+    if (this.validDeposit()) {
+      this.transactionService.addDepositTransaction({amount, memo, fromAccountId, toAccountId, transactionType} as Transaction)
+        .subscribe(transaction => this.transaction = transaction);
+
+      this.cancelTransaction();
     }
-    const transactionDt = new Date().toJSON();
-    this.transactionService.addDepositTransaction({amount, memo, fromAccountId, toAccountId, transactionType, transactionDt} as Transaction)
-      .subscribe(transaction => this.transaction = transaction);
-    this.cancelTransaction();
   }
 
   validDeposit(): boolean {
@@ -117,7 +115,7 @@ export class TransactionComponent implements OnInit {
 
   enableTransfer(): void {
     this.clearFields();
-    this.transactionService.getAccounts().subscribe(account => this.accountsTo = account);
+    this.transactionService.getAccounts().subscribe(transaction => this.accountsTo = transaction);
     TransactionComponent.enableGeneralButtons();
     (document.getElementById('fromAccount') as HTMLInputElement).hidden = false;
     (document.getElementById('toAccount') as HTMLInputElement).hidden = false;
@@ -125,7 +123,7 @@ export class TransactionComponent implements OnInit {
 
   enableDeposit() {
     this.clearFields();
-    this.transactionService.getAccountByUserID(this.userId).subscribe(account => this.accountsTo = account);
+    this.transactionService.getAccountByUserID(this.userId).subscribe(transaction => this.accountsTo = transaction);
     TransactionComponent.enableGeneralButtons();
     (document.getElementById('toAccount') as HTMLInputElement).hidden = false;
     (document.getElementById('fromAccount') as HTMLInputElement).hidden = true;
@@ -140,14 +138,12 @@ export class TransactionComponent implements OnInit {
 
   cancelTransaction() {
     this.clearFields();
-    (document.getElementById('finalButtons') as HTMLInputElement).hidden = true;
     (document.getElementById('addTransactionButton') as HTMLInputElement).hidden = true;
-    (document.getElementById('cancelTransaction') as HTMLInputElement).hidden = true;
-
     (document.getElementById('amount') as HTMLInputElement).hidden = true;
     (document.getElementById('memo') as HTMLInputElement).hidden = true;
     (document.getElementById('fromAccount') as HTMLInputElement).hidden = true;
     (document.getElementById('toAccount') as HTMLInputElement).hidden = true;
+    (document.getElementById('cancelTransaction') as HTMLInputElement).hidden = true;
     (document.getElementById('transactionType') as HTMLInputElement).hidden = true;
   }
 
