@@ -1,5 +1,5 @@
 {
-  "extends": "../trash/tslint.json",
+  "extends": "../tslint.json",
   "rules": {
     "directive-selector": [
       true,

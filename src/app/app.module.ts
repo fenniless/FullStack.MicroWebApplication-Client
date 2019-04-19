@@ -8,13 +8,14 @@ import {AppComponent} from './app.component';
 import {UserComponent} from './user/user.component';
 import {TransactionComponent} from './transaction/transaction.component';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
-// import { TransactionDetailComponent } from './transaction-detail/transaction-detail.component';
 import {MessagesComponent} from './messages/messages.component';
 import {UserSearchComponent} from './user-search/user-search.component';
 import {UserDetailComponent} from './user-detail/user-detail.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {AccountsComponent} from './accounts/accounts.component';
 import {TransactionListComponent} from './transaction-list/transaction-list.component';
+import {NgxChartsComponent} from './ngxcharts/ngxcharts.component';
+import {SuiModule} from 'ng2-semantic-ui';
 
 @NgModule({
   declarations: [
@@ -26,13 +27,16 @@ import {TransactionListComponent} from './transaction-list/transaction-list.comp
     UserDetailComponent,
     DashboardComponent,
     TransactionListComponent,
-    AccountsComponent
+    AccountsComponent,
+    NgxChartsComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxChartsModule,
+    SuiModule,
   ],
   providers: [],
 

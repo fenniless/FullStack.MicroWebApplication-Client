@@ -1,0 +1,12 @@
+svg {
+  font: bold 50px 'Arial';
+  width: 80%;
+  height: 50px;
+}
+
+text {
+  fill: white;
+  stroke: black;
+  stroke-width: 2px;
+  stroke-linejoin: round;
+}

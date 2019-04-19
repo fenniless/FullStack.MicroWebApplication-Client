@@ -29,6 +29,7 @@ export class TransactionService {
   private transactionUrl = `${this.baseURI}transaction/`;
   private accountUrl = `${this.baseURI}account`;
   private transactionTypeURL = `${this.baseURI}transactiontype`;
+  private latestTransactionURL = `${this.transactionUrl}latest`;
 
   private log(message: string) {
     this.messageService.add(`HeroService: ${message}`);
@@ -84,4 +85,16 @@ export class TransactionService {
     return this.http.post<Transaction>(this.transactionUrl, transaction, httpOptions);
 
   }
+
+  getLatestTransactions(): Observable<Transaction[]> {
+    // console.log('Provider made');
+    // this.http.get('http://localhost:8080/budget/transaction/').subscribe(data => {
+    //   console.log(data); });
+    return this.http.get<Transaction[]>(this.latestTransactionURL)
+      .pipe(
+        tap(_ => this.log('Most Recent Transactions')),
+        catchError(this.handleError<Transaction[]>('getLatestTransactions', []))
+      );
+  }
+
 }
