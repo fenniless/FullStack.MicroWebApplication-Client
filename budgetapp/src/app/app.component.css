@@ -23,4 +23,12 @@
 /*.bar {*/
 /*  background-color: #BBD8DC;*/
 /*}*/
+html, body, .container-fluid, .row {
+  height: 100%;
+}
+@media (min-height: 5000px) {
+  .sidebar {
+    height: 100%;
+  }
+}
 
