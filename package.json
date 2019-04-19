@@ -21,6 +21,8 @@
     "@angular/forms": "~7.2.0",
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
+    "@swimlane/ngx-charts": "^10.1.0",
+    "@swimlane/ngx-datatable": "^14.0.0",
     "@angular/router": "~7.2.0",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
@@ -30,7 +32,8 @@
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "typescript": "~3.2.2",
-    "zone.js": "~0.8.26"
+    "zone.js": "~0.8.26",
+    "d3": "^4.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.13.8",
