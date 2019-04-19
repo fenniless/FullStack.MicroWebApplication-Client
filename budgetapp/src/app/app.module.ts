@@ -14,17 +14,18 @@ import {UserSearchComponent} from './user-search/user-search.component';
 import {UserDetailComponent} from './user-detail/user-detail.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {AccountsComponent} from './accounts/accounts.component';
+import {TransactionListComponent} from './transaction-list/transaction-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     TransactionComponent,
-    // TransactionDetailComponent,
     MessagesComponent,
     UserSearchComponent,
     UserDetailComponent,
     DashboardComponent,
+    TransactionListComponent,
     AccountsComponent
   ],
   imports: [
