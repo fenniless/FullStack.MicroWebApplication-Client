@@ -16,6 +16,7 @@ import {AccountsComponent} from './accounts/accounts.component';
 import {TransactionListComponent} from './transaction-list/transaction-list.component';
 import {NgxChartsComponent} from './ngxcharts/ngxcharts.component';
 import {SuiModule} from 'ng2-semantic-ui';
+import { MainWindowComponent } from './main-window/main-window.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {SuiModule} from 'ng2-semantic-ui';
     DashboardComponent,
     TransactionListComponent,
     AccountsComponent,
+    MainWindowComponent,
     NgxChartsComponent,
   ],
   imports: [
