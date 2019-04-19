@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
-import {Profile} from './user';
 import { MessageService } from './message.service';
+import { Profile} from './user';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,6 @@ export class UserService {
               private messageService: MessageService
   ) {
   }
-
   getUsers(): Observable<Profile[]> {
     return this.http.get<Profile[]>(this.userUrl)
       .pipe(

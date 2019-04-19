@@ -23,7 +23,7 @@ export class AccountService {
     // this.userId = userComponent.userId;
   }
   getAccounts(userId: number): Observable<Account[]> {
-    const url = `${this.accountUrl}`;
+    const url = `${this.accountUrl}/?userId=${userId}`;
     return this.http.get<Account[]>(url)
       .pipe(
         tap(_ => this.log('Account Data')),
