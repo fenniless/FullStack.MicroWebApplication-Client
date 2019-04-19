@@ -40,7 +40,7 @@
     <tr>
       <th colspan="7">
         <sui-pagination [collectionSize]="total" [pageSize]="limit" [hasNavigationLinks]="true" [hasBoundaryLinks]="true" [(page)]="selectedPage"
-                        (pageChange)="pageChange()">
+                        (pageChange)="pageChange(selectedPage)">
         </sui-pagination>
       </th>
     </tr>
