@@ -8,6 +8,7 @@ import {AppComponent} from './app.component';
 import {UserComponent} from './user/user.component';
 import {TransactionComponent} from './transaction/transaction.component';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
+import {SuiModule} from 'ng2-semantic-ui';
 // import { TransactionDetailComponent } from './transaction-detail/transaction-detail.component';
 import {MessagesComponent} from './messages/messages.component';
 import {UserSearchComponent} from './user-search/user-search.component';
@@ -34,7 +35,8 @@ import {TransactionListComponent} from './transaction-list/transaction-list.comp
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxChartsModule
+    NgxChartsModule,
+    SuiModule,
   ],
   providers: [],
 
