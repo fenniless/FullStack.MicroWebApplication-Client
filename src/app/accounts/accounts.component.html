@@ -5,8 +5,9 @@
   <li class="text-center" *ngFor="let account of accounts"
       [class.selected]="account === selectedAccount"
       (click)="onSelect(account)">
-    <a class="text-light" routerLink="account/{{account}}">
-      <span class="text-">{{account.name}}</span>
+<!--    <a class="text-light" routerLink="account/{{account}}">-->
+    <a class="text-light" routerLink="transaction/{{userId}}">
+      <span class="text-muted">{{account.name}}</span>
       <span class="text-muted"><br>${{account.balance}}<br></span>
     </a>
   </li>
@@ -19,7 +20,7 @@
 </ul>
 
 <div class="text-center text-light pt-3" *ngIf="selectedAccount">
-  <h2>{{selectedAccount.name}}</h2>
+  <h2> <b>{{selectedAccount.name}}</b></h2>
   <div><span>Balance: </span>${{selectedAccount.balance}}</div>
 <!--  <div><span>Account Type: </span>{{selectedAccount.accountTypeId}}</div>-->
   <div><span></span>{{selectedAccount.nickname}}</div>

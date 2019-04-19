@@ -4,8 +4,9 @@
       {{defaultName}}
     </button>
     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+
       <a *ngFor="let profile of profiles" [class.selected]="profile === selectedProfile"
-         (click)="onSelect(profile)" class="dropdown-item" routerLink="/accounts/{{profile.id}}">{{profile.userName}}</a>
+         (click)="onSelect(profile)" class="dropdown-item" routerLink="/mainwindow/{{profile.id}}">{{profile.userName}}</a>
     </div>
   </div>
 </div>
@@ -14,17 +15,7 @@
 <div class="text-lg-center text-light pt-3" *ngIf="selectedProfile">
 
   <h2>{{selectedProfile.userName}} Details</h2>
-  <div><span>id: </span>{{selectedProfile.id}}</div>
-  <div><span>name: </span>{{selectedProfile.firstName}} {{selectedProfile.lastName}}</div>
 
 </div>
-
-<!--<ul class="users">-->
-<!--  <li *ngFor="let profile of users">-->
-<!--    -->
-<!--      <span class="badge">{{profile.userName}}</span>-->
-<!--    </a>-->
-<!--  </li>-->
-<!--</ul>-->
 
 
