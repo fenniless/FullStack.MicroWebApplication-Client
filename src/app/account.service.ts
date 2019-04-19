@@ -13,8 +13,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AccountService {
-  // private accountUrl = 'https://budgetapp-server.herokuapp.com/budget/account';
-  private accountUrl = 'http://localhost:8080/budget/account';
+  private accountUrl = 'https://budgetapp-server.herokuapp.com/budget/account';
+  // private accountUrl = 'http://localhost:8080/budget/account';
   // private userId;
   private log(message: string) {
     this.messageService.add(`AccountService: ${message}`);
