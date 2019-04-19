@@ -43,10 +43,12 @@ export class TransactionComponent implements OnInit {
   transactionTypeId: number;
 
   static enableGeneralButtons(): void {
+    (document.getElementById('finalButtons') as HTMLInputElement).hidden = false;
     (document.getElementById('addTransactionButton') as HTMLInputElement).hidden = false;
+    (document.getElementById('cancelTransaction') as HTMLInputElement).hidden = false;
+
     (document.getElementById('amount') as HTMLInputElement).hidden = false;
     (document.getElementById('memo') as HTMLInputElement).hidden = false;
-    (document.getElementById('cancelTransaction') as HTMLInputElement).hidden = false;
     (document.getElementById('transactionType') as HTMLInputElement).hidden = false;
   }
 
@@ -138,12 +140,14 @@ export class TransactionComponent implements OnInit {
 
   cancelTransaction() {
     this.clearFields();
+    (document.getElementById('finalButtons') as HTMLInputElement).hidden = true;
     (document.getElementById('addTransactionButton') as HTMLInputElement).hidden = true;
+    (document.getElementById('cancelTransaction') as HTMLInputElement).hidden = true;
+
     (document.getElementById('amount') as HTMLInputElement).hidden = true;
     (document.getElementById('memo') as HTMLInputElement).hidden = true;
     (document.getElementById('fromAccount') as HTMLInputElement).hidden = true;
     (document.getElementById('toAccount') as HTMLInputElement).hidden = true;
-    (document.getElementById('cancelTransaction') as HTMLInputElement).hidden = true;
     (document.getElementById('transactionType') as HTMLInputElement).hidden = true;
   }
 
