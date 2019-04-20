@@ -38,7 +38,7 @@ export class TransactionListComponent implements OnInit {
 
   ngOnInit() {
     this.userId = +this.route.snapshot.paramMap.get('id');
-    //   this.transactionService.getAccountByUserID(this.userId).subscribe(transaction => this.accounts = transaction);
+      this.transactionService.getAccountByUserID(this.userId).subscribe(transaction => this.accounts = transaction);
     this.getLatestTransactions();
   }
 
