@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from ‘@angular/core/testing’;
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TransactionListComponent } from ‘./transaction-list.component’;
+import { TransactionListComponent } from './transaction-list.component';
 
-describe(‘TransactionListComponent’, () => {
+describe('TransactionListComponent', () => {
  let component: TransactionListComponent;
  let fixture: ComponentFixture<TransactionListComponent>;
 
@@ -19,7 +19,7 @@ describe(‘TransactionListComponent’, () => {
    fixture.detectChanges();
  });
 
- it(‘should create’, () => {
+ it('should create', () => {
    expect(component).toBeTruthy();
  });
 });

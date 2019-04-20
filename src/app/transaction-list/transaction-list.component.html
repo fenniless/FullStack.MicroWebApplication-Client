@@ -1,15 +1,18 @@
-<h2 class="ui header">
-  Transactions List
-</h2>
-<hr>
-<div class="ui segment">
-  <!--<sui-dimmer class="inverted" [(isDimmed)]="loading">-->
-    <!--<div class="ui text loader">Loading</div>-->
-  <!--</sui-dimmer>-->
-  <table class="ui celled table">
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">-->
+<!--<h2 class="ui header">-->
+<!--  <svg viewBox="0 0 350 50">-->
+<!--    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">Transactions List</text>-->
+<!--  </svg>-->
+<!--</h2>-->
+<div class="container-fluid">
+<div class="table-responsive-sm">
+<!--  <sui-dimmer class="inverted" [(isDimmed)]="loading">-->
+<!--    <div class="ui text loader">Loading</div>-->
+<!--  </sui-dimmer>-->
+  <table class="table table-striped table-hover table-sm table-borderless tbl">
     <thead>
     <tr>
-      <th align="left">Transaction ID</th>
+      <th align="left">ID</th>
       <th align="left">From</th>
       <th align="left">To</th>
       <th align="left">Memo</th>
@@ -21,27 +24,27 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let t of transactions">
-      <td>{{t.transactionId}}</td>
-      <td>{{t.fromAccountId}}</td>
-      <td>{{t.toAccountId}}</td>
-      <td>{{t.memo}}</td>
+    <tr class="table table-striped table-hover datatable-body text" *ngFor="let t of transactions">
+      <td data-label="Transaction ID">{{t.transactionId}}</td>
+      <td data-label="From">{{t.fromAccountId}}</td>
+      <td data-label="To">{{t.toAccountId}}</td>
+      <td data-label="Memo">{{t.memo}}</td>
       <!--<td>{{t.transactionType}}</td>-->
-      <td>{{t.transactionType['description']}}</td>
-      <!--<td>{{t.transactionType['id']}}</td>-->
-      <td>{{t.amount}}</td>
-      <td>{{t.transactionDt}}</td>
+      <td data-label="Transaction Type">{{t.transactionType['description']}}</td>
+      <!--<td data-label="Transaction Type ID">{{t.transactionType['id']}}</td>-->
+      <td data-label="Amount">{{t.amount}}</td>
+      <td data-label="Transaction Date">{{t.transactionDt}}</td>
     </tr>
     </tbody>
     <tfoot>
-    <!--<tr>-->
-      <!--<th colspan="7">-->
-        <!--&lt;!&ndash;<sui-pagination [collectionSize]="total" [pageSize]="limit" [hasNavigationLinks]="true" [hasBoundaryLinks]="true" [(page)]="selectedPage"&ndash;&gt;-->
-                        <!--&lt;!&ndash;(pageChange)="pageChange()">&ndash;&gt;-->
-        <!--&lt;!&ndash;</sui-pagination>&ndash;&gt;-->
-      <!--</th>-->
-    <!--</tr>-->
+    <tr>
+      <th colspan="7">
+        <sui-pagination [collectionSize]="total" [pageSize]="limit" [hasNavigationLinks]="true" [hasBoundaryLinks]="true" [(page)]="selectedPage"
+                        (pageChange)="pageChange()">
+        </sui-pagination>
+      </th>
+    </tr>
     </tfoot>
   </table>
 </div>
-
+</div>

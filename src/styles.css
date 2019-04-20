@@ -1,0 +1,7 @@
+.body {
+  background: url("./assets/outrun1.jpg");
+  background-position-x: center;
+  background-size: cover;
+  background-color: #272727;
+  height: 582px;
+}

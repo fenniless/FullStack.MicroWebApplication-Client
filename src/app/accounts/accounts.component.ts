@@ -9,7 +9,7 @@ import { ActivatedRoute} from '@angular/router';
   styleUrls: ['./accounts.component.css']
 })
 export class AccountsComponent implements OnInit {
-  userId: number;
+  @Input('userId')  userId: number;
   accounts: Account[];
   selectedAccount: Account;
   createAccount: boolean;
@@ -17,7 +17,7 @@ export class AccountsComponent implements OnInit {
   constructor(private accountService: AccountService, private route: ActivatedRoute) {
   }
   ngOnInit() {
-    this.userId = +this.route.snapshot.paramMap.get('id');
+    //this.userId = +this.route.snapshot.paramMap.get('id');
     this.getAccounts();
   }
   getAccounts(): void {
