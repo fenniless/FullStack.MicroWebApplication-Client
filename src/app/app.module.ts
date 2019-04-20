@@ -14,6 +14,8 @@ import {UserDetailComponent} from './user-detail/user-detail.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {AccountsComponent} from './accounts/accounts.component';
 import {TransactionListComponent} from './transaction-list/transaction-list.component';
+import {NgxChartsComponent} from './ngxcharts/ngxcharts.component';
+import {SuiModule} from 'ng2-semantic-ui';
 import { MainWindowComponent } from './main-window/main-window.component';
 
 @NgModule({
@@ -27,13 +29,16 @@ import { MainWindowComponent } from './main-window/main-window.component';
     DashboardComponent,
     TransactionListComponent,
     AccountsComponent,
-    MainWindowComponent
+    MainWindowComponent,
+    NgxChartsComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxChartsModule,
+    SuiModule,
   ],
   providers: [],
 
