@@ -27,7 +27,11 @@ export class AccountsComponent implements OnInit {
     this.selectedAccount = account;
   }
   onClick(): void {
-    this.createAccount = true;
+    if (!this.createAccount) {
+      this.createAccount = true;
+    } else {
+      this.createAccount = false;
+    }
   }
   add(name: string, balance: number, accountTypeId: number, userId: number): void {
     name = name.trim();
@@ -38,5 +42,6 @@ export class AccountsComponent implements OnInit {
       .subscribe(account => {
         this.accounts.push(account);
       });
+    this.createAccount = false;
   }
 }
