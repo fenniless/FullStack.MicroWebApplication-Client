@@ -1,46 +1,53 @@
 <div class="bg-light shadow text-center pt-3 pb-2">
-<h4>Accounts</h4>
+    <h4>Accounts</h4>
 </div>
 <ul class="container-fluid pt-3">
-  <li class="text-center" *ngFor="let account of accounts"
-      [class.selected]="account === selectedAccount"
-      (click)="onSelect(account)">
-<!--    <a class="text-light" routerLink="account/{{account}}">-->
-    <a class="text-light" routerLink="transaction/{{userId}}">
-      <span class="text-muted">{{account.name}}</span>
-      <span class="text-muted"><br>${{account.balance}}<br></span>
-    </a>
-  </li>
-  <li class="text-center text-light pt-3">
-    <h4>
-    <button class="btn-secondary" (click)="onClick()">+
-    </button>
-    </h4>
-  </li>
+    <table cellpadding="10">
+    <ol class="text-center" *ngFor="let account of accounts">
+            <tr>
+                <td>
+                    <span class="text-muted">{{account.name}}</span>
+                </td>
+                <td>
+                    <span class="text-muted">${{account.balance }}</span>
+                </td>
+            </tr>
+    </ol>
+    </table>
+    <li class="text-center text-light pt-3">
+        <h4>
+            <button class="btn-secondary" (click)="onClick()">+
+            </button>
+        </h4>
+    </li>
 </ul>
 
-<div class="text-center text-light pt-3" *ngIf="selectedAccount">
-  <h2> <b>{{selectedAccount.name}}</b></h2>
-  <div><span>Balance: </span>${{selectedAccount.balance}}</div>
-<!--  <div><span>Account Type: </span>{{selectedAccount.accountTypeId}}</div>-->
-  <div><span></span>{{selectedAccount.nickname}}</div>
-  <div><span>Id: </span>{{selectedAccount.id}}</div>
-<!--  <div><span>Institution: </span>{{selectedAccount.institutionName}}</div>-->
-
-</div>
 
 <div class="list-inline text-lg-center text-light pt-3" *ngIf="createAccount">
-  <h4 class="text-muted">Create New Account</h4>
-  <li class="pt-1 align-baseline">Name:<br>
-    <input #accountName />
-  </li>
-  <li class="pt-3 align-baseline">Balance:<br>
-    <input #accountBalance />
-  </li>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <li class="pt-3 align-baseline">
-  <button (click)="add(accountName.value, accountBalance.value);">
-    submit
-  </button>
-  </li>
+    <h4 class="text-muted">Create New Account</h4>
+    <li class="pt-1 align-baseline">Name:<br>
+        <input #accountName/>
+    </li>
+    <li class="pt-3 align-baseline">Balance:<br>
+        <input #accountBalance/>
+    </li>
+    <div id="accountType" >
+        <div >
+            <button id="btnGroupDrop" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false" #newAccountType value="{{AccountTypeID}}">
+                {{accountTypeName}}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="accountTypebtn" id="accountTypedrp">
+                <a *ngFor="let accountType of accountTypes" [class.selected]="accountType === selectedAccountType"
+                   (click)="onSelectAccountType(accountType)" class="dropdown-item">{{accountType.description}}</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- (click) passes input value to add() and then clears the input -->
+    <li class="pt-3 align-baseline">
+        <button (click)="add(accountName.value, accountBalance.value);">
+            submit
+        </button>
+    </li>
 </div>
