@@ -89,7 +89,7 @@ export class TransactionService {
   getLatestTransactions(): Observable<Transaction[]> {
     // console.log('Provider made');
     // this.http.get('http://localhost:8080/budget/transaction/').subscribe(data => {
-    //   console.log(data); });
+    // console.log(data); });
     return this.http.get<Transaction[]>(this.latestTransactionURL)
       .pipe(
         tap(_ => this.log('Most Recent Transactions')),
