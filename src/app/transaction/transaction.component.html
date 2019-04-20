@@ -1,6 +1,9 @@
+<div class="bg-light shadow text-center pt-3 pb-2"><h4>
+  Transfer Funds
+</h4>
 <script src="transaction.component.ts"></script>
-<div class="text-lg-center text-light pt-3">
-  <h2>Transactions</h2>
+
+
   <div>
     <div  class="bg-light shadow text-center pt-3 pb-3">
       <button (click)="enableDeposit()"> Deposit</button>
@@ -12,17 +15,22 @@
     <label>
 
       <div id="amount" hidden="true"  class="bg-light shadow text-center pt-3 pb-3">
+        <span>Amount</span>
+        <br> $
         <input id="amountValue "type="number" value="0.01" #newTransactionAmount/>
       </div>
       <div id="memo" hidden="true" class="bg-light shadow text-center pt-3 pb-3">
-        <input value="Memo" #newTransactionMemo/>
+        <span>Memo Field</span>
+        <br>
+        <input value="Memo Field" #newTransactionMemo/>
       </div>
 
       <div id="fromAccount" hidden="true" class="bg-light shadow text-center pt-3 pb-3">
         <div class="btn-group" role="group">
+
           <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false" #newTransactionFromAccount value="{{fromAccountId}}">
-            From: {{fromAccountName}}
+            {{fromAccountName}}
           </button>
           <div class="dropdown-menu" aria-labelledby="fromAccountbtn" id="fromAccountdrp">
             <a *ngFor="let account of accounts" [class.selected]="account === selectFromAccount"
@@ -36,7 +44,7 @@
         <div class="btn-group" role="group">
           <button id="btnGroupDrop2" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false" #newTransactionToAccount value="{{toAccountId}}">
-            To: {{toAccountName}}
+            {{toAccountName}}
           </button>
           <div class="dropdown-menu" aria-labelledby="fromAccountbtn" id="toAccountdrp">
             <a *ngFor="let account of accountsTo" [class.selected]="account === selectToAccount"
@@ -65,7 +73,7 @@
     <div id="finalButtons" hidden="true" class="bg-light shadow text-center pt-3 pb-3">
       <button id="addTransactionButton" hidden="true"
               (click)="addDeposit(newTransactionAmount.value, newTransactionMemo.value, newTransactionFromAccount.value,newTransactionToAccount.value , newTransactionType.value); newTransactionAmount.value=''">
-        ok
+        OK
       </button>
 
       <button id="cancelTransaction" hidden="true" (click)="cancelTransaction()"> Cancel</button>

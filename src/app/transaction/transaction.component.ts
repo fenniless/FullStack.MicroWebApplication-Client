@@ -7,8 +7,8 @@ import {TransactionService} from '../transaction.service';
 
 import {Transactiontype} from '../transactiontype';
 
-const resetFromForm = 'Select account :';
-const resetToForm = 'Select account :';
+const resetFromForm = 'Select From :';
+const resetToForm = 'Select To :';
 const transactionTypeForm = 'Select type :';
 
 @Component({
@@ -26,6 +26,7 @@ export class TransactionComponent implements OnInit {
     this.transactionTypeName = transactionTypeForm;
   }
 
+  hasAccount = true;
   transaction: Transaction;
   userId: number;
   transactions: Transaction[];
