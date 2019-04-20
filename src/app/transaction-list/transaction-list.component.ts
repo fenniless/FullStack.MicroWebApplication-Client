@@ -38,7 +38,7 @@ export class TransactionListComponent implements OnInit {
 
   ngOnInit() {
     this.userId = +this.route.snapshot.paramMap.get('id');
-    //   this.transactionService.getAccountByUserID(this.userId).subscribe(transaction => this.accounts = transaction);
+    this.transactionService.getAccountByUserID(this.userId).subscribe(transaction => this.accounts = transaction);
     this.getLatestTransactions();
   }
 
@@ -54,8 +54,8 @@ export class TransactionListComponent implements OnInit {
       );
   }
 
-  // Pagination Clicks
-  public pageChange(page): void {
+  // Pagination Logic
+  public pageChange(): void {
     this.start = (this.selectedPage - 1) * this.limit;
     this.end = this.start + this.limit;
     this.transactions = this.allTransactions.slice(this.start, this.end);
