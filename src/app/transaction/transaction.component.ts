@@ -26,7 +26,6 @@ export class TransactionComponent implements OnInit {
     this.transactionTypeName = transactionTypeForm;
   }
 
-  hasAccount = true;
   transaction: Transaction;
   userId: number;
   transactions: Transaction[];
@@ -60,10 +59,6 @@ export class TransactionComponent implements OnInit {
     this.transactionService.getTransactionTypes().subscribe(transactionType => this.transactionTypes = transactionType);
   }
 
-  getTransactions(): void {
-    this.transactionService.getTransactions()
-      .subscribe(transaction => this.transactions = transaction);
-  }
 
   onSelectFromAccount(account: Account) {
     this.selectFromAccount = account;
