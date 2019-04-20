@@ -14,7 +14,8 @@ const routes: Routes = [
   {path: 'transaction/:id', component: TransactionComponent},
   {path: 'mainwindow/:id/transaction/:id', component: TransactionComponent},
   {path: 'mainwindow/:id', component: MainWindowComponent},
-  {path: 'transactions', component: TransactionListComponent}
+  {path: 'transactions', component: TransactionListComponent},
+  {path: 'transactions:/id', component: TransactionListComponent}
 ];
 
 @NgModule({
@@ -23,4 +24,3 @@ const routes: Routes = [
 })
 export class AppRoutingModule {
 }
-

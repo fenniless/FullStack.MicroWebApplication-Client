@@ -91,4 +91,13 @@ export class TransactionService {
       );
   }
 
+  getLatestTransactionsByUser(userId: number): Observable<Transaction[]> {
+    const url = `${this.transactionUrl}${userId}`;
+    // console.log(url);
+    return this.http.get<Transaction[]>(url)
+      .pipe(
+        tap(_ => this.log('Most Recent Transactions by User')),
+        catchError(this.handleError<Transaction[]>('getLatestTransactionsByUser', []))
+      );
+  }
 }

@@ -13,10 +13,6 @@ import {Account} from '../account';
 })
 export class TransactionListComponent implements OnInit {
 
-  // private baseURI = 'https://budgetapp-server.herokuapp.com/budget/';
-  // private transactionUrl = `${this.baseURI}transaction/`;
-  // private accountUrl = `${this.baseURI}account`;
-
   constructor(private transactionService: TransactionService,
               private route: ActivatedRoute) {
   }
@@ -38,12 +34,12 @@ export class TransactionListComponent implements OnInit {
   ngOnInit() {
     this.userId = +this.route.snapshot.paramMap.get('id');
     this.transactionService.getAccountByUserID(this.userId).subscribe(transaction => this.accounts = transaction);
-    this.getLatestTransactions();
+    this.getLatestTransactionsByUser();
   }
 
-  getLatestTransactions(): void {
+  getLatestTransactionsByUser(): void {
     this.loading = true;
-    this.transactionService.getLatestTransactions()
+    this.transactionService.getLatestTransactionsByUser(this.userId)
       .subscribe(transactions => {
           this.total = transactions.length;
           this.allTransactions = transactions;
