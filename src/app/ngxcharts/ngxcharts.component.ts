@@ -86,8 +86,8 @@ export class NgxChartsComponent implements OnInit {
   // }
 
   ngOnInit() {
-    this.userId = +this.route.snapshot.paramMap.get('id');
-    this.transactionService.getAccountByUserID(this.userId).subscribe(transaction => this.accounts = transaction);
+    // this.userId = +this.route.snapshot.paramMap.get('id');
+    // this.transactionService.getAccountByUserID(this.userId).subscribe(transaction => this.accounts = transaction);
     this.transactionService.getTransactions()
       .subscribe(transaction => {
         console.log(transaction);
