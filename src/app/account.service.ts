@@ -14,8 +14,8 @@ const httpOptions = {
     providedIn: 'root'
 })
 export class AccountService {
-    private baseUri = 'http://localhost:8080/budget/';
-    // private baseUri = 'https://budgetapp-server.herokuapp.com/budget/';
+    // private baseUri = 'http://localhost:8080/budget/';
+    private baseUri = 'https://budgetapp-server.herokuapp.com/budget/';
 
     private accountUrl = `${this.baseUri}/account`;
 
