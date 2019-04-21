@@ -1,38 +1,34 @@
-<div class="bg-light shadow text-center pt-3 pb-2"><h4>
+<div class="pt-3 pb-2"><h4 class="text-muted text-center">
   Transfer Funds
 </h4>
-<script src="transaction.component.ts"></script>
+  <div class="ln"></div>
 
-
+  <script src="transaction.component.ts"></script>
   <div>
-    <div  class="bg-light shadow text-center pt-3 pb-3">
-      <button (click)="enableDeposit()"> Deposit</button>
-      <button (click)="enableWithDraw()"> Withdraw</button>
-      <button (click)="enableTransfer()"> Transfer</button>
+    <div  class="text-center pt-3 pb-1">
+      <button class="plus text-muted" (click)="enableDeposit()"> Deposit</button>
+      <button class="plus text-muted" (click)="enableWithDraw()"> Withdraw</button>
+      <button class="plus text-muted" (click)="enableTransfer()"> Transfer</button>
     </div>
     <p>
     </p>
-    <label>
+    <label class="create container-fluid">
+      <div id="amount" hidden="true"  class="text-pink text-center pt-3 pb-1">
+        <h6 class="text-light pb-1">Create New Transfer</h6>
 
-      <div id="amount" hidden="true"  class="bg-light shadow text-center pt-3 pb-3">
-        <span>Amount</span>
-        <br> $
-        <input id="amountValue "type="number" value="0.01" #newTransactionAmount/>
+        <input placeholder="$ Amount*" class="form text-light" id="amountValue "type="number" #newTransactionAmount/>
       </div>
-      <div id="memo" hidden="true" class="bg-light shadow text-center pt-3 pb-3">
-        <span>Memo Field</span>
-        <br>
-        <input value="Memo Field" #newTransactionMemo/>
+      <div id="memo" hidden="true" class="text-center pt-1 pb-1">
+        <input placeholder="Memo*" class="form text-light" #newTransactionMemo/>
       </div>
 
-      <div id="fromAccount" hidden="true" class="bg-light shadow text-center pt-3 pb-3">
+      <div id="fromAccount" hidden="true" class="text-center pt-2 pb-2">
         <div class="btn-group" role="group">
-
-          <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+          <button id="btnGroupDrop1" type="button" class="btn plus text-muted dropdown-toggle" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false" #newTransactionFromAccount value="{{fromAccountId}}">
             {{fromAccountName}}
           </button>
-          <div class="dropdown-menu" aria-labelledby="fromAccountbtn" id="fromAccountdrp">
+          <div class="dropdown-menu plus text-light" aria-labelledby="fromAccountbtn" id="fromAccountdrp">
             <a *ngFor="let account of accounts" [class.selected]="account === selectFromAccount"
                (click)="onSelectFromAccount(account)" class="dropdown-item">{{account.name}}
               | {{account.nickname}}</a>
@@ -40,13 +36,13 @@
         </div>
       </div>
 
-      <div id="toAccount" hidden="true" class="bg-light shadow text-center pt-3 pb-3">
+      <div id="toAccount" hidden="true" class="text-center pt-2 pb-2">
         <div class="btn-group" role="group">
-          <button id="btnGroupDrop2" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+          <button id="btnGroupDrop2" type="button" class="btn plus text-muted dropdown-toggle" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false" #newTransactionToAccount value="{{toAccountId}}">
             {{toAccountName}}
           </button>
-          <div class="dropdown-menu" aria-labelledby="fromAccountbtn" id="toAccountdrp">
+          <div class="dropdown-menu plus text-light" aria-labelledby="fromAccountbtn" id="toAccountdrp">
             <a *ngFor="let account of accountsTo" [class.selected]="account === selectToAccount"
                (click)="onSelectToAccount(account)" class="dropdown-item">{{account.name}}
               | {{account.nickname}}</a>
@@ -54,30 +50,27 @@
         </div>
       </div>
 
-      <div id="transactionType" hidden="true" class="bg-light shadow text-center pt-3 pb-3">
+      <div id="transactionType" hidden="true" class="text-center pt-2 pb-2">
         <div class="btn-group" role="group">
-          <button id="btnGroupDrop" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+          <button id="btnGroupDrop" type="button" class="btn plus text-muted dropdown-toggle" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false" #newTransactionType value="{{transactionTypeName}}">
             {{transactionTypeName}}
           </button>
-          <div class="dropdown-menu" aria-labelledby="transactionTypebtn" id="transactionTypedrp">
+          <div class="dropdown-menu plus text-light" aria-labelledby="transactionTypebtn" id="transactionTypedrp">
             <a *ngFor="let transactionType of transactionTypes" [class.selected]="transactionType === selectedTransactionType"
                (click)="onSelectTransactionType(transactionType)" class="dropdown-item">{{transactionType.description}}</a>
           </div>
         </div>
       </div>
-
-
+      <div id="finalButtons" hidden="true" class="text-center pt-2 pb-4">
+        <button id="addTransactionButton" hidden="true" class="plus text-light"
+                (click)="addDeposit(newTransactionAmount.value, newTransactionMemo.value, newTransactionFromAccount.value,newTransactionToAccount.value , newTransactionType.value); newTransactionAmount.value=''">
+          OK
+        </button>
+        <button id="cancelTransaction" hidden="true" class="plus text-muted"
+                (click)="cancelTransaction()"> Cancel</button>
+      </div>
     </label>
     <p></p>
-    <div id="finalButtons" hidden="true" class="bg-light shadow text-center pt-3 pb-3">
-      <button id="addTransactionButton" hidden="true"
-              (click)="addDeposit(newTransactionAmount.value, newTransactionMemo.value, newTransactionFromAccount.value,newTransactionToAccount.value , newTransactionType.value); newTransactionAmount.value=''">
-        OK
-      </button>
-
-      <button id="cancelTransaction" hidden="true" (click)="cancelTransaction()"> Cancel</button>
-    </div>
-
   </div>
 </div>

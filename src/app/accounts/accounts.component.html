@@ -1,7 +1,7 @@
 
 <ul class="container-fluid">
     <table cellpadding="">
-      <div class="text-muted text-center">
+      <div class="text-muted">
         <h4>Accounts</h4>
       </div>
     <ol class="text-left" *ngFor="let account of accounts">
@@ -13,16 +13,16 @@
     </ol>
     </table>
     <li class="text-center text-light pt-3 list-inline">
-        <h4>
-            <button class="btn-secondary plus" (click)="onClick()">+
+        <h6>
+            <button class="plus text-muted px-lg-2" style="font-size: x-large" (click)="onClick()">+
             </button>
-        </h4>
+        </h6>
     </li>
 </ul>
 
 
 <div class="list-inline text-lg-center text-light pt-3 create" *ngIf="createAccount">
-    <h6 class="accounts">Create New Account</h6>
+    <h6 class="text-light">Create New Account</h6>
     <li class="pt-1 align-baseline">
         <input class="form text-light" placeholder="Name*" #accountName/>
     </li>
@@ -31,11 +31,11 @@
     </li>
     <div id="accountType" >
         <div class="text-muted pt-3">
-            <button id="btnGroupDrop" type="button" class="btn btn-secondary dropdown-toggle plus" data-toggle="dropdown"
+            <button id="btnGroupDrop" type="button" class="btn text-muted dropdown-toggle plus" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false" #newAccountType value="{{AccountTypeID}}">
                 {{accountTypeName}}
             </button>
-            <div class="dropdown-menu plus" aria-labelledby="accountTypebtn" id="accountTypedrp">
+            <div class="dropdown-menu plus text-light" aria-labelledby="accountTypebtn" id="accountTypedrp">
                 <a *ngFor="let accountType of accountTypes" [class.selected]="accountType === selectedAccountType"
                    (click)="onSelectAccountType(accountType)" class="dropdown-item">{{accountType.description}}</a>
             </div>
