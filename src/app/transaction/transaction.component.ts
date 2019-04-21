@@ -7,8 +7,8 @@ import {TransactionService} from '../transaction.service';
 
 import {Transactiontype} from '../transactiontype';
 
-const resetFromForm = 'Select account :';
-const resetToForm = 'Select account :';
+const resetFromForm = 'Select From :';
+const resetToForm = 'Select To :';
 const transactionTypeForm = 'Select type :';
 
 @Component({
@@ -59,10 +59,6 @@ export class TransactionComponent implements OnInit {
     this.transactionService.getTransactionTypes().subscribe(transactionType => this.transactionTypes = transactionType);
   }
 
-  getTransactions(): void {
-    this.transactionService.getTransactions()
-      .subscribe(transaction => this.transactions = transaction);
-  }
 
   onSelectFromAccount(account: Account) {
     this.selectFromAccount = account;

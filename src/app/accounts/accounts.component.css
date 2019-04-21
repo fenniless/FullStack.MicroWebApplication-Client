@@ -13,6 +13,16 @@
   background-color: #ff00f6;
 }
 .create{
-  border-radius: 25px;
+  border-radius: 10px;
   background-image: linear-gradient(rgba(255, 0, 246, 0.21), rgba(0, 0, 0, 0.5));
+}
+.form {
+  font-family: "Roboto", sans-serif;
+  outline: #ff00f6 1px;
+  background: #000000;
+  border: 1px;
+  margin: 0 0 1px;
+  padding: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
 }
