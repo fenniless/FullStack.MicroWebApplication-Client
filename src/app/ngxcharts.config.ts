@@ -10,9 +10,9 @@ export let lineChartShowYAxis = true;
 export let lineChartGradient = false;
 export let lineChartShowLegend = false;
 export let lineChartShowXAxisLabel = true;
-export let lineChartXAxisLabel = 'Country';
+export let lineChartXAxisLabel = 'Date';
 export let lineChartShowYAxisLabel = true;
-export let lineChartYAxisLabel = 'Population';
+export let lineChartYAxisLabel = 'Amount';
 
 export let lineChartColorScheme = {
   domain: ['#1CBCD8', '#FF8D60', '#FF586B', '#AAAAAA']
