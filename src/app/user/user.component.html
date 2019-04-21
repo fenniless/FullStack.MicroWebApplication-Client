@@ -1,21 +1,22 @@
-<div class="bg-light shadow text-center pt-3 pb-3">
-  <div class="btn-group" role="group">
-    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+<div class="">
+  <div class="" role="group">
+    <button id="btnGroupDrop1" type="button" class="btn text-light dropdown-toggle cusmenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       {{defaultName}}
     </button>
-    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+    <div class="dropdown-menu cusmenu" aria-labelledby="">
 
       <a *ngFor="let profile of profiles" [class.selected]="profile === selectedProfile"
-         (click)="onSelect(profile)" class="dropdown-item" routerLink="/mainwindow/{{profile.id}}">{{profile.userName}}</a>
+         (click)="onSelect(profile)" class="dropdown-item cusmenu text-light" routerLink="/mainwindow/{{profile.id}}">{{profile.userName}}</a>
     </div>
   </div>
 </div>
 
 
-<div class="text-lg-center text-light pt-3" *ngIf="selectedProfile">
+<!--<div class="text-lg-center text-light pt-3" *ngIf="selectedProfile">-->
 
-  <h2>{{selectedProfile.userName}} Details</h2>
+<!--  <h2>{{selectedProfile.userName}} Details</h2>-->
 
-</div>
+<!--</div>-->
 
 

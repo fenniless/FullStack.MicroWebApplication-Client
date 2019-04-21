@@ -21,6 +21,7 @@ export class AccountsComponent implements OnInit {
     accountTypeId: number;
 
     constructor(private accountService: AccountService, private route: ActivatedRoute) {
+      this.createAccount = false;
     }
 
     ngOnInit() {
@@ -39,7 +40,7 @@ export class AccountsComponent implements OnInit {
     }
 
     onClick(): void {
-        this.createAccount = true;
+      this.createAccount = !this.createAccount;
     }
 
     add(name: string, balance: number, accountTypeId: number, userId: number): void {
@@ -54,6 +55,7 @@ export class AccountsComponent implements OnInit {
             .subscribe(
                 account => {this.accounts.push(account);}
             );
+        this.createAccount = false;
     }
 
 
