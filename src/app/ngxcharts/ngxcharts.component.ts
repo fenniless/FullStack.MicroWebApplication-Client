@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {lineChartMulti} from '../ngxcharts';
 import * as chartsData from '../ngxcharts.config';
 import {ActivatedRoute} from '@angular/router';
-import {single, multi} from './data';
+// import {single, multi} from './data';
 
 import {Transaction} from '../transaction.model';
 import {TransactionService} from '../transaction.service';
@@ -49,7 +49,7 @@ export class NgxChartsComponent implements OnInit {
 
   constructor(private transactionService: TransactionService,
               private route: ActivatedRoute) {
-    Object.assign(this, {single, multi});
+    // Object.assign(this, {single, multi});
   }
 
   // ngOnInit() {
