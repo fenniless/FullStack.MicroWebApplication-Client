@@ -4,7 +4,6 @@ import {ActivatedRoute} from '@angular/router';
 import {Transaction} from '../transaction.model';
 import {TransactionService} from '../transaction.service';
 import {Account} from '../account';
-
 // import {Profile} from '../user';
 
 @Component({
@@ -13,10 +12,6 @@ import {Account} from '../account';
   styleUrls: ['./transaction-list.component.css']
 })
 export class TransactionListComponent implements OnInit {
-
-  // private baseURI = 'https://budgetapp-server.herokuapp.com/budget/';
-  // private transactionUrl = `${this.baseURI}transaction/`;
-  // private accountUrl = `${this.baseURI}account`;
 
   constructor(private transactionService: TransactionService,
               private route: ActivatedRoute) {
@@ -38,13 +33,13 @@ export class TransactionListComponent implements OnInit {
 
   ngOnInit() {
     this.userId = +this.route.snapshot.paramMap.get('id');
-    //   this.transactionService.getAccountByUserID(this.userId).subscribe(transaction => this.accounts = transaction);
-    this.getLatestTransactions();
+    this.transactionService.getAccountByUserID(this.userId).subscribe(transaction => this.accounts = transaction);
+    this.getLatestTransactionsByUser();
   }
 
-  getLatestTransactions(): void {
+  getLatestTransactionsByUser(): void {
     this.loading = true;
-    this.transactionService.getLatestTransactions()
+    this.transactionService.getLatestTransactionsByUser(this.userId)
       .subscribe(transactions => {
           this.total = transactions.length;
           this.allTransactions = transactions;
@@ -54,8 +49,8 @@ export class TransactionListComponent implements OnInit {
       );
   }
 
-  // Pagination Clicks
-  public pageChange(page): void {
+  // Pagination Logic
+  public pageChange(): void {
     this.start = (this.selectedPage - 1) * this.limit;
     this.end = this.start + this.limit;
     this.transactions = this.allTransactions.slice(this.start, this.end);

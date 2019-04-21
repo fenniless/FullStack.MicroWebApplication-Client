@@ -1,6 +1,22 @@
-<ngx-charts-line-chart [scheme]="lineChartColorScheme" [results]="lineChartMulti" [gradient]="lineChartGradient"
-                       [xAxis]="lineChartShowXAxis" [yAxis]="lineChartShowYAxis" [legend]="lineChartShowLegend"
-                       [showXAxisLabel]="lineChartShowXAxisLabel" [showYAxisLabel]="lineChartShowYAxisLabel"
-                       [xAxisLabel]="lineChartXAxisLabel" [yAxisLabel]="lineChartYAxisLabel"
-                       [autoScale]="lineChartAutoScale" [curve]="lineChartLineInterpolation"
-                       (select)="onSelect($event)"></ngx-charts-line-chart>
+<html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+<script src="ngxcharts.component.ts"></script>
+<ngx-charts-line-chart [scheme]="lineChartColorScheme"
+                       [results]="lineChartMulti"
+                       [gradient]="lineChartGradient"
+                       [xAxis]="lineChartShowXAxis"
+                       [yAxis]="lineChartShowYAxis"
+                       [legend]="lineChartShowLegend"
+                       [showXAxisLabel]="lineChartShowXAxisLabel"
+                       [showYAxisLabel]="lineChartShowYAxisLabel"
+                       [xAxisLabel]="lineChartXAxisLabel"
+                       [yAxisLabel]="lineChartYAxisLabel"
+                       [autoScale]="lineChartAutoScale"
+                       [curve]="lineChartLineInterpolation"
+                       (select)="onSelect($event)">
+</ngx-charts-line-chart>
+
+<h1>
+  Hi!
+</h1>
+</html>
