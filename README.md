@@ -23,7 +23,7 @@ https://budgetapp-client.herokuapp.com/
 * Install [Heroku](). From terminal execute
 	* `brew tap heroku/brew && brew install heroku`
 
-<hr><hr>
+<hr>
 
 ## Project Topic
 
