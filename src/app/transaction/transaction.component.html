@@ -31,8 +31,7 @@
           </button>
           <div class="dropdown-menu plus text-light" aria-labelledby="fromAccountbtn" id="fromAccountdrp">
             <a *ngFor="let account of accounts" [class.selected]="account === selectFromAccount"
-               (click)="onSelectFromAccount(account)" class="dropdown-item">{{account.name}}
-              | {{account.nickname}}</a>
+               (click)="onSelectFromAccount(account)" class="dropdown-item">{{account.id}}: {{account.name}}</a>
           </div>
         </div>
       </div>
@@ -44,8 +43,7 @@
           </button>
           <div class="dropdown-menu plus text-light drpdwn" aria-labelledby="fromAccountbtn" id="toAccountdrp">
             <a *ngFor="let account of accountsTo" [class.selected]="account === selectToAccount"
-               (click)="onSelectToAccount(account)" class="dropdown-item drpdwn">{{account.name}}
-              | {{account.nickname}}</a>
+               (click)="onSelectToAccount(account)" class="dropdown-item drpdwn">{{account.id}}: {{account.name}}</a>
           </div>
         </div>
       </div>
