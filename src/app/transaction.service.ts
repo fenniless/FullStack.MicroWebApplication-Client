@@ -24,8 +24,8 @@ export class TransactionService {
               private messageService: MessageService) {
   }
 
-   // private baseURI = 'https://budgetapp-server.herokuapp.com/budget/';
-  private baseURI = 'http://localhost:8080/budget/';
+   private baseURI = 'https://budgetapp-server.herokuapp.com/budget/';
+  // private baseURI = 'http://localhost:8080/budget/';
   private transactionUrl = `${this.baseURI}transaction/`;
   private accountUrl = `${this.baseURI}account`;
   private transactionTypeURL = `${this.baseURI}transactiontype`;
