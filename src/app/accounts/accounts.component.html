@@ -14,7 +14,7 @@
     </table>
     <li class="text-center text-light pt-3 list-inline animate4 slideIn">
         <h6>
-            <button class="plus text-muted px-lg-2" style="font-size: x-large" (click)="onClick()">+
+            <button class="plus text-muted" (click)="onClick()">Add
             </button>
         </h6>
     </li>
@@ -26,7 +26,7 @@
     <li class="pt-1 align-baseline animate2 slideIn">
         <input class="form text-light" placeholder="Name*" #accountName/>
     </li>
-    <li class="pt-3 align-baseline animate3 slideIn">
+    <li class="pt-2 pb-1 align-baseline animate3 slideIn">
         <input class="form text-light" placeholder="Balance*" #accountBalance/>
     </li>
     <div id="accountType" >
@@ -45,7 +45,10 @@
     <!-- (click) passes input value to add() and then clears the input -->
     <li class="pt-3 pb-3 align-baseline animate4 slideIn">
         <button class="plus text-light" (click)="add(accountName.value, accountBalance.value);">
-            submit
+            OK
         </button>
+      <button class="plus text-muted" (click)="onClick();">
+        Cancel
+      </button>
     </li>
 </div>
