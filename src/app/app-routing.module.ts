@@ -13,7 +13,8 @@ const routes: Routes = [
   {path: 'accounts/:id', component: AccountsComponent},
   {path: 'transaction/:id', component: TransactionComponent},
   {path: 'mainwindow/:id/transaction/:id', component: TransactionComponent},
-  {path: 'mainwindow/:id', component: MainWindowComponent},
+  {path: 'mainwindow/:id', component: MainWindowComponent,
+    runGuardsAndResolvers: 'always'},
   {path: 'transactions', component: TransactionListComponent},
   {path: 'transactions:/id', component: TransactionListComponent}
 ];
@@ -22,5 +23,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
 })
+
+
 export class AppRoutingModule {
 }
