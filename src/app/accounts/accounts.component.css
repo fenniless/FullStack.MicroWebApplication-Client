@@ -101,3 +101,9 @@
 .text-muted {
   color: #8a959d !important;
 }
+.dropdown-item:hover {
+  color:#16181b;
+  text-decoration:none;
+  background-color: #ff00f6
+}
+

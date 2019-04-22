@@ -6,7 +6,8 @@
         <div class="text-left animate2 slideIn" *ngFor="let account of accounts">
             <div class="ln animate2 slideIn"></div>
             <td>
-                <span class="text-light animate3 slideIn">{{account.name}}</span><br>
+              <span class="text-muted animate4 slideIn">{{account.id}}: </span>
+              <span class="text-light animate3 slideIn">{{account.name}}</span><br>
                 <span class="text-muted animate4 slideIn">${{account.balance.toFixed(2) }}</span>
             </td>
         </div>
@@ -24,7 +25,7 @@
         <input class="form text-light" placeholder="Name*" #accountName/>
     </li>
     <li class="pt-2 pb-1 animate3 slideIn">
-        <input class="form text-light" placeholder="Balance*" #accountBalance/>
+        <input class="form text-light" placeholder="Balance*" type="number" #accountBalance/>
     </li>
     <div id="accountType">
         <div class="text-muted pt-2 animate3 slideIn drpdwn">
