@@ -98,3 +98,6 @@
   overflow-x: hidden;
   z-index: 10000;
 }
+.text-muted {
+  color: #8a959d !important;
+}

@@ -1,15 +1,15 @@
-<ul class="container-fluid">
-    <table cellpadding="">
+<ul>
+    <table>
       <div class="text-muted animate2 slideIn">
-        <h4>Accounts</h4>
+        <h5>Accounts</h5>
       </div>
-    <ol class="text-left animate2 slideIn" *ngFor="let account of accounts">
+    <div class="text-left animate2 slideIn" *ngFor="let account of accounts">
       <div class="ln animate2 slideIn"></div>
-                <td>
-                  <span class="text-light animate3 slideIn">{{account.name}}</span><br>
-                  <span class="text-muted animate4 slideIn">${{account.balance }}</span>
-                </td>
-    </ol>
+      <td>
+        <span class="text-light animate3 slideIn">{{account.name}}</span><br>
+        <span class="text-muted animate4 slideIn">${{account.balance }}</span>
+      </td>
+    </div>
     </table>
     <li class="text-center text-light pt-3 list-inline animate4 slideIn">
         <h6>
@@ -18,12 +18,12 @@
         </h6>
     </li>
 </ul>
-<div class="list-inline text-lg-center text-light pt-3 create animate2 slideIn" *ngIf="createAccount">
+<div class="list-inline text-light pt-3 create animate2 slideIn" *ngIf="createAccount">
     <h6 class="text-light">Create New Account</h6>
     <li class="pt-1 align-baseline animate2 slideIn">
         <input class="form text-light" placeholder="Name*" #accountName/>
     </li>
-    <li class="pt-2 pb-1 align-baseline animate3 slideIn">
+    <li class="pt-2 pb-1 animate3 slideIn">
         <input class="form text-light" placeholder="Balance*" #accountBalance/>
     </li>
     <div id="accountType" >
@@ -38,7 +38,7 @@
             </div>
         </div>
     </div>
-    <li class="pt-3 pb-3 align-baseline animate4 slideIn">
+    <li class="pt-3 pb-3 animate4 slideIn">
         <button class="plus text-light" (click)="add(accountName.value, accountBalance.value);">
             OK
         </button>
