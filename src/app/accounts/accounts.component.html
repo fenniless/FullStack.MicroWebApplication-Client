@@ -1,51 +1,49 @@
-
-<ul class="container-fluid">
-    <table cellpadding="">
-      <div class="text-muted animate2 slideIn">
-        <h4>Accounts</h4>
-      </div>
-    <ol class="text-left animate2 slideIn" *ngFor="let account of accounts">
-      <div class="ln animate2 slideIn"></div>
-                <td>
-                  <span class="text-light animate3 slideIn">{{account.name}}</span><br>
-                  <span class="text-muted animate4 slideIn">${{account.balance}}</span>
-                </td>
-    </ol>
+<ul>
+    <table>
+        <div class="text-muted animate2 slideIn">
+            <h5>Accounts</h5>
+        </div>
+        <div class="text-left animate2 slideIn" *ngFor="let account of accounts">
+            <div class="ln animate2 slideIn"></div>
+            <td>
+                <span class="text-light animate3 slideIn">{{account.name}}</span><br>
+                <span class="text-muted animate4 slideIn">${{account.balance }}</span>
+            </td>
+        </div>
     </table>
     <li class="text-center text-light pt-3 list-inline animate4 slideIn">
         <h6>
-            <button class="plus text-muted px-lg-2" style="font-size: x-large" (click)="onClick()">+
+            <button class="plus text-muted" (click)="onClick()">Add
             </button>
         </h6>
     </li>
 </ul>
-
-
-<div class="list-inline text-lg-center text-light pt-3 create animate2 slideIn" *ngIf="createAccount">
+<div class="list-inline text-light pt-3 create animate2 slideIn" *ngIf="createAccount">
     <h6 class="text-light">Create New Account</h6>
     <li class="pt-1 align-baseline animate2 slideIn">
         <input class="form text-light" placeholder="Name*" #accountName/>
     </li>
-    <li class="pt-3 align-baseline animate3 slideIn">
+    <li class="pt-2 pb-1 animate3 slideIn">
         <input class="form text-light" placeholder="Balance*" #accountBalance/>
     </li>
-    <div id="accountType" >
-        <div class="text-muted pt-3 animate3 slideIn">
-            <button id="btnGroupDrop" type="button" class="btn text-muted dropdown-toggle plus " data-toggle="dropdown"
+    <div id="accountType">
+        <div class="text-muted pt-2 animate3 slideIn drpdwn">
+            <button id="btnGroupDrop" type="button" class="btn text-muted dropdown-toggle plus" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false" #newAccountType value="{{AccountTypeID}}">
                 {{accountTypeName}}
             </button>
-            <div class="dropdown-menu plus text-light" aria-labelledby="accountTypebtn" id="accountTypedrp">
+            <div class="dropdown-menu plus text-light dropright" aria-labelledby="accountTypebtn" id="accountTypedrp">
                 <a *ngFor="let accountType of accountTypes" [class.selected]="accountType === selectedAccountType"
                    (click)="onSelectAccountType(accountType)" class="dropdown-item ">{{accountType.description}}</a>
             </div>
         </div>
     </div>
-
-    <!-- (click) passes input value to add() and then clears the input -->
-    <li class="pt-3 pb-3 align-baseline animate4 slideIn">
+    <li class="pt-3 pb-3 animate4 slideIn">
         <button class="plus text-light" (click)="add(accountName.value, accountBalance.value);">
-            submit
+            OK
+        </button>
+        <button class="plus text-muted" (click)="onClick();">
+            Cancel
         </button>
     </li>
 </div>
