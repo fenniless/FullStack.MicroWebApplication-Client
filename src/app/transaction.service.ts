@@ -24,8 +24,8 @@ export class TransactionService {
               private messageService: MessageService) {
   }
 
-  private baseURI = 'https://budgetapp-server.herokuapp.com/budget/';
-  // private baseURI = 'http://localhost:8080/budget/';
+   private baseURI = 'https://budgetapp-server.herokuapp.com/budget/';
+  //private baseURI = 'http://localhost:8080/budget/';
   private transactionUrl = `${this.baseURI}transaction/`;
   private accountUrl = `${this.baseURI}account`;
   private transactionTypeURL = `${this.baseURI}transactiontype`;
@@ -45,27 +45,27 @@ export class TransactionService {
 
   getAccountByUserID(userId: number): Observable<Account[]> {
     const url = `${this.accountUrl}/?userId=${userId}`;
-    console.log(url);
-    this.http.get(url).subscribe(data => {
-      console.log(data);
-    });
+    // console.log(url);
+    // this.http.get(url).subscribe(data => {
+    //   console.log(data);
+    // });
     return this.http.get<Account[]>(url);
   }
 
   getAccounts(): Observable<Account[]> {
     const url = `${this.accountUrl}`;
-    console.log(url);
-    this.http.get(url).subscribe(data => {
-      console.log(data);
-    });
+    // console.log(url);
+    // this.http.get(url).subscribe(data => {
+    //   console.log(data);
+    // });
     return this.http.get<Account[]>(url);
   }
 
   getTransactionTypes(): Observable<Transactiontype[]> {
     const url = `${this.transactionTypeURL}`;
-    this.http.get(url).subscribe(data => {
-      console.log(data);
-    });
+    // this.http.get(url).subscribe(data => {
+    //   console.log(data);
+    // });
     return this.http.get<Transactiontype[]>(url);
   }
 

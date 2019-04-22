@@ -19,7 +19,13 @@ export class MainWindowComponent implements OnInit {
     ngOnInit() {
         this.route.params.subscribe(routeParams => this.userId = routeParams.id);
         console.log(this.userId);
-
     }
+
+    reload(e: string){
+        this.router.navigate([`mainwindow/${this.userId}`])
+    }
+
+
+
 
 }

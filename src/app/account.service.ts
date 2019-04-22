@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class AccountService {
     // private baseUri = 'http://localhost:8080/budget/';
-    private baseUri = 'https://budgetapp-server.herokuapp.com/budget/';
+     private baseUri = 'https://budgetapp-server.herokuapp.com/budget/';
 
     private accountUrl = `${this.baseUri}/account`;
 
@@ -38,9 +38,9 @@ export class AccountService {
 
     getAccountTypes(): Observable<Accounttype[]> {
         const url = `${this.baseUri}/accounttype`;
-        this.http.get(url).subscribe(data => {
-            console.log(data);
-        });
+        // this.http.get(url).subscribe(data => {
+        //     console.log(data);
+        // });
         return this.http.get<Accounttype[]>(url);
     }
 
