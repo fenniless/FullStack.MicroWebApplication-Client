@@ -1,15 +1,15 @@
 <ul>
     <table>
-      <div class="text-muted animate2 slideIn">
-        <h5>Accounts</h5>
-      </div>
-    <div class="text-left animate2 slideIn" *ngFor="let account of accounts">
-      <div class="ln animate2 slideIn"></div>
-      <td>
-        <span class="text-light animate3 slideIn">{{account.name}}</span><br>
-        <span class="text-muted animate4 slideIn">${{account.balance }}</span>
-      </td>
-    </div>
+        <div class="text-muted animate2 slideIn">
+            <h5>Accounts</h5>
+        </div>
+        <div class="text-left animate2 slideIn" *ngFor="let account of accounts">
+            <div class="ln animate2 slideIn"></div>
+            <td>
+                <span class="text-light animate3 slideIn">{{account.name}}</span><br>
+                <span class="text-muted animate4 slideIn">${{account.balance.toFixed(2) }}</span>
+            </td>
+        </div>
     </table>
     <li class="text-center text-light pt-3 list-inline animate4 slideIn">
         <h6>
@@ -26,7 +26,7 @@
     <li class="pt-2 pb-1 animate3 slideIn">
         <input class="form text-light" placeholder="Balance*" #accountBalance/>
     </li>
-    <div id="accountType" >
+    <div id="accountType">
         <div class="text-muted pt-2 animate3 slideIn drpdwn">
             <button id="btnGroupDrop" type="button" class="btn text-muted dropdown-toggle plus" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false" #newAccountType value="{{AccountTypeID}}">
@@ -42,8 +42,8 @@
         <button class="plus text-light" (click)="add(accountName.value, accountBalance.value);">
             OK
         </button>
-      <button class="plus text-muted" (click)="onClick();">
-        Cancel
-      </button>
+        <button class="plus text-muted" (click)="onClick();">
+            Cancel
+        </button>
     </li>
 </div>
