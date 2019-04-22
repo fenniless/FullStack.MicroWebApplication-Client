@@ -1,4 +1,4 @@
-**ZipCode Group #3's Budget Application**
+**ZipCode Group #3's Budget Application:**
 https://budgetapp-client.herokuapp.com/
 
 
