@@ -5,3 +5,16 @@
   background-color: #272727;
   height: 582px;
 }
+#outrun {
+  position: fixed;
+  right: 0;
+  top: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+.content {
+  position: fixed;
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}

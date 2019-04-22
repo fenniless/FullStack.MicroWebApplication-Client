@@ -103,3 +103,9 @@
 .cusmenu-selected {
   background-color: black;
 }
+.hdr {
+  padding: 10px;
+  background-color: rgba(255, 0, 246, 0.28);
+  background-blend-mode: hard-light;
+  box-shadow: black;
+}

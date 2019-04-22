@@ -1,30 +1,31 @@
-<div class="pt-3 pb-2"><h4 class="text-muted text-center">
+<div class="pt-3 pb-2"><h4 class="text-muted text-center animate1 slideIn">
   Transfer Funds
 </h4>
-  <div class="ln"></div>
+  <div class="ln animate2 slideIn"></div>
 
   <script src="transaction.component.ts"></script>
   <div>
     <div  class="text-center pt-3 pb-1">
-      <button class="plus text-muted" (click)="enableDeposit()"> Deposit</button>
-      <button class="plus text-muted" (click)="enableWithDraw()"> Withdraw</button>
-      <button class="plus text-muted" (click)="enableTransfer()"> Transfer</button>
+      <button class="plus text-muted animate2 slideIn" (click)="enableDeposit()"> Deposit</button>
+      <button class="plus text-muted animate3 slideIn" (click)="enableWithDraw()"> Withdraw</button>
+      <button class="plus text-muted animate4 slideIn" (click)="enableTransfer()"> Transfer</button>
     </div>
     <p>
     </p>
-    <label class="create container-fluid">
-      <div id="amount" hidden="true"  class="text-pink text-center pt-3 pb-1">
-        <h6 class="text-light pb-1">Create New Transfer</h6>
+    <div class="container-fluid  animate1 slideIn">
+    <div class="create">
+      <div id="amount" hidden="true"  class="text-pink text-center pt-3 pb-1 ">
+        <h6 class="text-light pb-1 animate1 slideIn">Create New Transfer</h6>
 
-        <input placeholder="$ Amount*" class="form text-light" id="amountValue "type="number" #newTransactionAmount/>
+        <input placeholder="$ Amount*" class="form text-light animate2 slideIn" id="amountValue "type="number" #newTransactionAmount/>
       </div>
       <div id="memo" hidden="true" class="text-center pt-1 pb-1">
-        <input placeholder="Memo*" class="form text-light" #newTransactionMemo/>
+        <input placeholder="Memo*" class="form text-light animate3 slideIn" #newTransactionMemo/>
       </div>
 
       <div id="fromAccount" hidden="true" class="text-center pt-2 pb-2">
         <div class="btn-group" role="group">
-          <button id="btnGroupDrop1" type="button" class="btn plus text-muted dropdown-toggle" data-toggle="dropdown"
+          <button id="btnGroupDrop1" type="button" class="btn plus text-muted dropdown-toggle animate3 slideIn" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false" #newTransactionFromAccount value="{{fromAccountId}}">
             {{fromAccountName}}
           </button>
@@ -35,8 +36,7 @@
           </div>
         </div>
       </div>
-
-      <div id="toAccount" hidden="true" class="text-center pt-2 pb-2">
+      <div id="toAccount" hidden="true" class="text-center pt-2 pb-2 animate4 slideIn">
         <div class="btn-group" role="group">
           <button id="btnGroupDrop2" type="button" class="btn plus text-muted dropdown-toggle" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false" #newTransactionToAccount value="{{toAccountId}}">
@@ -50,7 +50,7 @@
         </div>
       </div>
 
-      <div id="transactionType" hidden="true" class="text-center pt-2 pb-2">
+      <div id="transactionType" hidden="true" class="text-center pt-2 pb-2 animate4 slideIn">
         <div class="btn-group" role="group">
           <button id="btnGroupDrop" type="button" class="btn plus text-muted dropdown-toggle" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false" #newTransactionType value="{{transactionTypeName}}">
@@ -63,14 +63,15 @@
         </div>
       </div>
       <div id="finalButtons" hidden="true" class="text-center pt-2 pb-4">
-        <button id="addTransactionButton" hidden="true" class="plus text-light"
+        <button id="addTransactionButton" hidden="true" class="plus text-light animate5 slideIn"
                 (click)="addDeposit(newTransactionAmount.value, newTransactionMemo.value, newTransactionFromAccount.value,newTransactionToAccount.value , newTransactionType.value); newTransactionAmount.value=''">
           OK
         </button>
-        <button id="cancelTransaction" hidden="true" class="plus text-muted"
+        <button id="cancelTransaction" hidden="true" class="plus text-muted animate5 slideIn"
                 (click)="cancelTransaction()"> Cancel</button>
       </div>
-    </label>
+    </div>
     <p></p>
   </div>
+</div>
 </div>
