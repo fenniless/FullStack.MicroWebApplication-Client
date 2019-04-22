@@ -8,7 +8,7 @@
                 <app-transaction-list></app-transaction-list>
             </td>
             <td>
-                <app-transaction></app-transaction>
+                <app-transaction (reloadComponents)="reload($event)"></app-transaction>
             </td>
         </table>
     </div>
