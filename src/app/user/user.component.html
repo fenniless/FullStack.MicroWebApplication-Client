@@ -1,6 +1,9 @@
 
 <div class="text-center">
   <div role="group">
+    <a id="smallLogo" hidden="true" href="">
+    <img src="../assets/logo3.png" style="height: 80px">
+    </a>
     <button id="btnGroupDrop1" type="button" class="btn text-light dropdown-toggle cusmenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       {{defaultName}}
     </button>
@@ -8,6 +11,11 @@
 
       <a *ngFor="let profile of profiles" [class.selected]="profile === selectedProfile"
          (click)="onSelect(profile)" class="dropdown-item cusmenu text-light" routerLink="/mainwindow/{{profile.id}}">{{profile.userName}}</a>
+    </div><br>
+    <div id="bigLogo" class="align-middle pt-5">
+    <a  class="text-center" style="height: 200px" href="">
+      <img class="pt-lg-5" src="../../assets/logo2.png" >
+    </a>
     </div>
   </div>
 </div>
