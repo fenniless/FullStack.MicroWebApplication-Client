@@ -18,6 +18,12 @@ export class UserComponent implements OnInit {
     this.defaultName = 'Login';
   }
 
+  static enableGeneralButtons(): void {
+    (document.getElementById('smallLogo') as HTMLInputElement).hidden = true;
+    (document.getElementById('btnGroupDrop1') as HTMLInputElement).hidden = false;
+    (document.getElementById('bigLogo') as HTMLInputElement).hidden = false;
+  }
+
   ngOnInit() {
     this.getUsers();
   }
@@ -29,6 +35,9 @@ export class UserComponent implements OnInit {
     this.selectedProfile = profile;
     this.defaultName = this.selectedProfile.userName;
     this.userId = this.selectedProfile.id;
+    (document.getElementById('smallLogo') as HTMLInputElement).hidden = false;
+    (document.getElementById('btnGroupDrop1') as HTMLInputElement).hidden = true;
+    (document.getElementById('bigLogo') as HTMLInputElement).hidden = true;
   }
 
   add(firstName: string, lastName: string, userName: string): void {
