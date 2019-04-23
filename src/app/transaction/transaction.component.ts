@@ -143,6 +143,7 @@ export class TransactionComponent implements OnInit {
 
     enableTransfer(): void {
         this.clearFields();
+        this.transactionService.getAccountByUserID(this.userId).subscribe(account => this.accounts = account);
         this.transactionService.getAccounts().subscribe(account => this.accountsTo = account);
         TransactionComponent.enableGeneralButtons();
         (document.getElementById('fromAccount') as HTMLInputElement).hidden = false;
@@ -151,6 +152,7 @@ export class TransactionComponent implements OnInit {
 
     enableDeposit() {
         this.clearFields();
+        this.transactionService.getAccountByUserID(this.userId).subscribe(account => this.accounts = account);
         this.transactionService.getAccountByUserID(this.userId).subscribe(account => this.accountsTo = account);
         TransactionComponent.enableGeneralButtons();
         (document.getElementById('toAccount') as HTMLInputElement).hidden = false;
@@ -159,6 +161,8 @@ export class TransactionComponent implements OnInit {
 
     enableWithDraw() {
         this.clearFields();
+        this.transactionService.getAccountByUserID(this.userId).subscribe(account => this.accounts = account);
+        this.transactionService.getAccountByUserID(this.userId).subscribe(account => this.accountsTo = account);
         TransactionComponent.enableGeneralButtons();
         (document.getElementById('fromAccount') as HTMLInputElement).hidden = false;
         (document.getElementById('toAccount') as HTMLInputElement).hidden = true;
