@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Profile} from '../user';
 import {UserService} from '../user.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user',
@@ -14,8 +15,9 @@ export class UserComponent implements OnInit {
   userId: number;
 
   @Input() profile: Profile;
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router) {
     this.defaultName = 'Login';
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
 
   static enableGeneralButtons(): void {
@@ -38,12 +40,5 @@ export class UserComponent implements OnInit {
     (document.getElementById('smallLogo') as HTMLInputElement).hidden = false;
     (document.getElementById('btnGroupDrop1') as HTMLInputElement).hidden = true;
     (document.getElementById('bigLogo') as HTMLInputElement).hidden = true;
-  }
-
-  add(firstName: string, lastName: string, userName: string): void {
-    this.userService.addUser({firstName, lastName, userName} as Profile)
-      .subscribe(
-        profile => {this.profiles.push(profile); }
-      );
   }
 }
