@@ -20,11 +20,32 @@
   </div>
 </div>
 
+<li class="text-center text-light pt-3 list-inline animate4 slideIn">
+  <h6>
+    <button class="plus text-muted" (click)="onClick()">Sign Up
+    </button>
+  </h6>
+</li>
+<div class="list-inline text-light pt-3 create animate2 slideIn" *ngIf="createUser">
+  <h6 class="text-light">Create New User</h6>
+  <li class="pt-1 align-baseline animate2 slideIn">
+    <input class="form text-light" placeholder="Username*" #userName/>
+  </li>
+  <li class="pt-2 pb-1 animate3 slideIn">
+    <input class="form text-light" placeholder="First Name*" #firstName/>
+  </li>
+  <li class="pt-2 pb-1 animate3 slideIn">
+    <input class="form text-light" placeholder="Last Name*" #lastName/>
+  </li>
+  <li class="pt-3 pb-3 animate4 slideIn">
+    <button class="plus text-light" (click)="add(firstName.value, lastName.value, userName.value);">
+      OK
+    </button>
+    <button class="plus text-muted" (click)="onClick();">
+      Cancel
+    </button>
+  </li>
+</div>
 
-<!--<div class="text-lg-center text-light pt-3" *ngIf="selectedProfile">-->
-
-<!--  <h2>{{selectedProfile.userName}} Details</h2>-->
-
-<!--</div>-->
 
 

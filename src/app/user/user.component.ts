@@ -12,10 +12,14 @@ export class UserComponent implements OnInit {
   selectedProfile: Profile;
   defaultName: string;
   userId: number;
+  createUser: boolean;
+
 
   @Input() profile: Profile;
+
   constructor(private userService: UserService) {
     this.defaultName = 'Login';
+    this.createUser = false;
   }
 
   static enableGeneralButtons(): void {
@@ -28,9 +32,14 @@ export class UserComponent implements OnInit {
     this.getUsers();
   }
 
+  onClick(): void {
+    this.createUser = !this.createUser;
+  }
+
   getUsers(): void {
     this.userService.getUsers().subscribe(profile => this.profiles = profile);
   }
+
   onSelect(profile: Profile): void {
     this.selectedProfile = profile;
     this.defaultName = this.selectedProfile.userName;
@@ -43,7 +52,9 @@ export class UserComponent implements OnInit {
   add(firstName: string, lastName: string, userName: string): void {
     this.userService.addUser({firstName, lastName, userName} as Profile)
       .subscribe(
-        profile => {this.profiles.push(profile); }
+        profile => {
+          this.profiles.push(profile);
+        }
       );
   }
 }
