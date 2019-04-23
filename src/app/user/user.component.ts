@@ -32,6 +32,9 @@ export class UserComponent implements OnInit {
   }
 
   add(firstName: string, lastName: string, userName: string): void {
-
+    this.userService.addUser({firstName, lastName, userName} as Profile)
+      .subscribe(
+        profile => {this.profiles.push(profile); }
+      );
   }
 }
