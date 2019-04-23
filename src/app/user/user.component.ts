@@ -15,7 +15,7 @@ export class UserComponent implements OnInit {
 
   @Input() profile: Profile;
   constructor(private userService: UserService) {
-    this.defaultName = 'Users';
+    this.defaultName = 'Login';
   }
 
   ngOnInit() {
@@ -29,5 +29,9 @@ export class UserComponent implements OnInit {
     this.selectedProfile = profile;
     this.defaultName = this.selectedProfile.userName;
     this.userId = this.selectedProfile.id;
+  }
+
+  add(firstName: string, lastName: string, userName: string): void {
+
   }
 }

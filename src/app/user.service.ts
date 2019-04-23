@@ -1,9 +1,13 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
 import {Profile} from './user';
 import { MessageService } from './message.service';
+
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
 
 @Injectable({
   providedIn: 'root'
@@ -45,5 +49,11 @@ export class UserService {
     if (!term.trim()) {
       return of([]);
     }
+  }
+  addUser(profile: Profile): Observable<Profile> {
+    return this.http.post<Profile>(this.userUrl, profile, httpOptions)
+      .pipe(
+        tap((newProfile: Profile) => this.log(`user created`)
+      ), catchError(this.handleError<Profile>('addUser')));
   }
 }
