@@ -12,9 +12,7 @@ const resetFromForm = 'Select From :';
 const resetToForm = 'Select To :';
 const transactionTypeForm = 'Select type :';
 const sleep = (milliseconds) => {
-    return new Promise(resolve => setTimeout(resolve, milliseconds))
-}
-
+    return new Promise(resolve => setTimeout(resolve, milliseconds))}
 @Component({
     selector: 'app-transaction',
     templateUrl: './transaction.component.html',

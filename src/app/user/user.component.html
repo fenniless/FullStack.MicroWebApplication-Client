@@ -1,9 +1,9 @@
-
 <div class="text-center">
   <div role="group">
     <a id="smallLogo" hidden="true" href="">
     <img src="../assets/logo3.png" style="height: 80px">
     </a>
+
     <button id="btnGroupDrop1" type="button" class="btn text-light dropdown-toggle cusmenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       {{defaultName}}
     </button>
@@ -11,20 +11,39 @@
 
       <a *ngFor="let profile of profiles" [class.selected]="profile === selectedProfile"
          (click)="onSelect(profile)" class="dropdown-item cusmenu text-light" routerLink="/mainwindow/{{profile.id}}">{{profile.userName}}</a>
-    </div><br>
+    </div>
+
+    <div id="createUser" hidden="false" class="btn-group" (click)="onClick();">
+      <button type="button" class="btn text-light dropdown-toggle cusmenu animate3 slideIn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        SignUp
+      </button>
+      <div class="dropdown-menu cusmenu p-3">
+        <h6 class="text-light text-center">Create New User</h6>
+        <div class="p-2">
+          <input class="form text-light cusmenu" placeholder="Username*" #userName/>
+        </div>
+        <div class="p-2">
+          <input class="form text-light cusmenu" placeholder="First Name*" #firstName/>
+        </div>
+        <div class="p-2">
+          <input class="form text-light cusmenu" placeholder="Last Name*" #lastName/>
+        </div>
+        <div class="p-2">
+          <button class="plus text-light cusmenu" (click)="add(firstName.value, lastName.value, userName.value);">
+            OK
+          </button>
+          <button class="plus text-muted cusmenu" (click)="onClick();">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <br>
     <div id="bigLogo" class="align-middle pt-5">
-    <a  class="text-center" style="height: 200px" href="">
+    <a  class="text-center" style="height: 200px">
       <img class="pt-lg-5" src="../../assets/logo2.png" >
     </a>
     </div>
   </div>
 </div>
-
-
-<!--<div class="text-lg-center text-light pt-3" *ngIf="selectedProfile">-->
-
-<!--  <h2>{{selectedProfile.userName}} Details</h2>-->
-
-<!--</div>-->
-
-

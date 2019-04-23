@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Account} from '../account';
 import {AccountService} from '../account.service';
 import {ActivatedRoute} from '@angular/router';
-import {Accounttype} from "../accounttype";
+import {Accounttype} from '../accounttype';
 
 @Component({
     selector: 'app-accounts',
@@ -25,10 +25,10 @@ export class AccountsComponent implements OnInit {
     }
 
     ngOnInit() {
-        //this.userId = +this.route.snapshot.paramMap.get('id');
-        console.log("init called");
+        // this.userId = +this.route.snapshot.paramMap.get('id');
+        console.log('init called');
         this.getAccounts();
-        this.accountTypeName = "Type";
+        this.accountTypeName = 'Type';
         this.accountService.getAccountTypes().subscribe(accountType => this.accountTypes = accountType);
     }
 
