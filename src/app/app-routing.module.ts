@@ -6,9 +6,11 @@ import {TransactionComponent} from './transaction/transaction.component';
 import {TransactionListComponent} from './transaction-list/transaction-list.component';
 import {NgxChartsComponent} from './ngxcharts/ngxcharts.component';
 import {MainWindowComponent} from './main-window/main-window.component';
+import {AppComponent} from './app.component';
 
 const routes: Routes = [
   {path: 'profiles', component: UserComponent},
+  {path: 'app', component: AppComponent},
   {path: 'accounts', component: AccountsComponent},
   {path: 'accounts/:id', component: AccountsComponent},
   {path: 'transaction/:id', component: TransactionComponent},
