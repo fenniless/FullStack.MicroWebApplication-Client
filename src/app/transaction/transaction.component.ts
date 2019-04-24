@@ -12,9 +12,7 @@ const resetFromForm = 'Select From :';
 const resetToForm = 'Select To :';
 const transactionTypeForm = 'Select type :';
 const sleep = (milliseconds) => {
-    return new Promise(resolve => setTimeout(resolve, milliseconds))
-}
-
+    return new Promise(resolve => setTimeout(resolve, milliseconds))}
 @Component({
     selector: 'app-transaction',
     templateUrl: './transaction.component.html',
@@ -143,6 +141,7 @@ export class TransactionComponent implements OnInit {
 
     enableTransfer(): void {
         this.clearFields();
+        this.transactionService.getAccountByUserID(this.userId).subscribe(account => this.accounts = account);
         this.transactionService.getAccounts().subscribe(account => this.accountsTo = account);
         TransactionComponent.enableGeneralButtons();
         (document.getElementById('fromAccount') as HTMLInputElement).hidden = false;
@@ -151,6 +150,7 @@ export class TransactionComponent implements OnInit {
 
     enableDeposit() {
         this.clearFields();
+        this.transactionService.getAccountByUserID(this.userId).subscribe(account => this.accounts = account);
         this.transactionService.getAccountByUserID(this.userId).subscribe(account => this.accountsTo = account);
         TransactionComponent.enableGeneralButtons();
         (document.getElementById('toAccount') as HTMLInputElement).hidden = false;
@@ -159,6 +159,8 @@ export class TransactionComponent implements OnInit {
 
     enableWithDraw() {
         this.clearFields();
+        this.transactionService.getAccountByUserID(this.userId).subscribe(account => this.accounts = account);
+        this.transactionService.getAccountByUserID(this.userId).subscribe(account => this.accountsTo = account);
         TransactionComponent.enableGeneralButtons();
         (document.getElementById('fromAccount') as HTMLInputElement).hidden = false;
         (document.getElementById('toAccount') as HTMLInputElement).hidden = true;

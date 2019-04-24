@@ -20,16 +20,20 @@ export class UserComponent implements OnInit {
   constructor(private userService: UserService) {
     this.defaultName = 'Login';
     this.createUser = false;
+
   }
 
   static enableGeneralButtons(): void {
     (document.getElementById('smallLogo') as HTMLInputElement).hidden = true;
     (document.getElementById('btnGroupDrop1') as HTMLInputElement).hidden = false;
     (document.getElementById('bigLogo') as HTMLInputElement).hidden = false;
+    (document.getElementById('createUser') as HTMLInputElement).hidden = false;
+
   }
 
   ngOnInit() {
     this.getUsers();
+    (document.getElementById('createUser') as HTMLInputElement).hidden = false;
   }
 
   onClick(): void {
@@ -47,6 +51,8 @@ export class UserComponent implements OnInit {
     (document.getElementById('smallLogo') as HTMLInputElement).hidden = false;
     (document.getElementById('btnGroupDrop1') as HTMLInputElement).hidden = true;
     (document.getElementById('bigLogo') as HTMLInputElement).hidden = true;
+    (document.getElementById('createUser') as HTMLInputElement).hidden = true;
+
   }
 
   add(firstName: string, lastName: string, userName: string): void {
