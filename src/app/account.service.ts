@@ -4,7 +4,7 @@ import {catchError, tap} from 'rxjs/operators';
 import {Account} from './account';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {MessageService} from './message.service';
-import {Accounttype} from "./accounttype";
+import {Accounttype} from './accounttype';
 
 const httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -14,8 +14,8 @@ const httpOptions = {
     providedIn: 'root'
 })
 export class AccountService {
-    private baseUri = 'http://localhost:8080/budget/';
-     // private baseUri = 'https://budgetapp-server.herokuapp.com/budget/';
+    // private baseUri = 'http://localhost:8080/budget/';
+     private baseUri = 'https://budgetapp-server.herokuapp.com/budget/';
 
     private accountUrl = `${this.baseUri}/account`;
 
