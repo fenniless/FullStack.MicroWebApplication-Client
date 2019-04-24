@@ -1,52 +1,39 @@
 <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">-->
-<!--<h2 class="ui header">-->
-<!--  <svg viewBox="0 0 350 50">-->
-<!--    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">Transactions List</text>-->
-<!--  </svg>-->
-<!--</h2>-->
-<div class="container-fluid bdr">
-  <div>
-    <h5 class="text-muted text-center animate2 slideIn">
+    <h5 class="text-muted text-center animate2 slideIn pt-3">
       Transactions
     </h5>
-<!--    <div class="ln animate2 slideIn"></div>-->
-  </div>
   <div class="ln animate2 slideIn"></div>
-
-  <div class="table-responsive-lg pt-2 tbl">
-    <!--  <sui-dimmer class="inverted" [(isDimmed)]="loading">-->
-    <!--    <div class="ui text loader">Loading</div>-->
-    <!--  </sui-dimmer>-->
-    <table class="table-responsive-lg table-striped table-borderless table-dark table-sm">
+<div class="table-responsive-sm">
+    <table class="table table-striped table-borderless table-dark tbl p-3">
       <thead class="text-muted animate2 slideIn ">
       <tr>
-        <th align="left">ID</th>
-        <th align="left">From</th>
-        <th align="left">To</th>
-        <th align="left">Memo</th>
+        <th class="t" align="left">ID</th>
+        <th class="t" align="left">From</th>
+        <th class="t" align="left">To</th>
+        <th class="t" align="left">Memo</th>
         <!--<th align="left">TransactionType</th>-->
-        <th align="left">Description</th>
+        <th class="t" align="left">Description</th>
         <!--<th align="left">Type ID</th>-->
-        <th align="left">Amount</th>
-        <th align="left">Date</th>
+        <th class="t" align="left">Amount</th>
+        <th class="t" align="left">Date</th>
       </tr>
       </thead>
-      <tbody class="table-dark table-borderless animate3 slideIn">
-      <tr class="" *ngFor="let t of transactions">
-        <td data-label="Transaction ID">{{t.transactionId}}</td>
-        <td data-label="From">{{t.fromAccountId}}</td>
-        <td data-label="To">{{t.toAccountId}}</td>
-        <td data-label="Memo">{{t.memo}}</td>
+      <tbody class="table-dark table-borderless animate3 slideIn t ">
+      <tr class="t" *ngFor="let t of transactions">
+        <td class="t" data-label="Transaction ID">{{t.transactionId}}</td>
+        <td class="t" data-label="From">{{t.fromAccountId}}</td>
+        <td class="t" data-label="To">{{t.toAccountId}}</td>
+        <td class="t" data-label="Memo">{{t.memo}}</td>
         <!--<td>{{t.transactionType}}</td>-->
-        <td data-label="Transaction Type">{{t.transactionType['description']}}</td>
+        <td class="t" data-label="Transaction Type">{{t.transactionType['description']}}</td>
         <!--<td data-label="Transaction Type ID">{{t.transactionType['id']}}</td>-->
-        <td data-label="Amount">{{t.amount}}</td>
-        <td data-label="Transaction Date">{{t.transactionDt}}</td>
+        <td class="t" data-label="Amount">{{t.amount}}</td>
+        <td class="t" data-label="Transaction Date">{{t.transactionDt}}</td>
       </tr>
       </tbody>
       <tfoot>
-      <tr>
-        <th colspan="7" class="">
+      <tr class="pt-2">
+        <th style="padding: 0px" colspan="8" class="">
           <div class="ln animate4 slideIn"></div>
           <sui-pagination class="p-2 animate4 slideIn" [collectionSize]="total" [pageSize]="limit" [hasNavigationLinks]="true" [hasBoundaryLinks]="true" [(page)]="selectedPage"
                           (pageChange)="pageChange()">
@@ -55,5 +42,5 @@
       </tr>
       </tfoot>
     </table>
-  </div>
 </div>
+

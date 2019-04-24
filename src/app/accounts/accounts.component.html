@@ -1,6 +1,6 @@
-<ul>
-    <table>
-        <div class="text-muted animate2 slideIn">
+
+
+        <div class="text-muted animate2 slideIn pt-3">
             <h5>Accounts</h5>
         </div>
         <div class="text-left animate2 slideIn" *ngFor="let account of accounts">
@@ -11,27 +11,23 @@
                 <span class="text-muted animate4 slideIn">${{account.balance.toFixed(2) }}</span>
             </td>
         </div>
-    </table>
+
     <li class="text-center text-light pt-3 list-inline animate4 slideIn">
         <h6>
             <button class="plus text-muted" (click)="onClick()">Add
             </button>
         </h6>
-<!--      <h6>-->
-<!--        <button class="plus text-muted"><a href="">Change User</a>-->
-<!--        </button>-->
-<!--      </h6>-->
     </li>
-</ul>
+
 <div class="list-inline text-light pt-3 create animate2 slideIn" *ngIf="createAccount">
-    <h6 class="text-light">Create New Account</h6>
-    <li class="pt-1 align-baseline animate2 slideIn">
+    <h6 class="text-light text-center">Create New Account</h6>
+    <li align="center" class="pt-1 align-baseline animate2 slideIn">
         <input class="form text-light" placeholder="Name*" #accountName/>
     </li>
-    <li class="pt-2 pb-1 animate3 slideIn">
+    <li align="center" class="pt-2 pb-1 animate3 slideIn">
         <input class="form text-light" placeholder="Balance*" type="number" #accountBalance/>
     </li>
-    <div id="accountType">
+    <div align="center" id="accountType">
         <div class="text-muted pt-2 animate3 slideIn drpdwn">
             <button id="btnGroupDrop" type="button" class="btn text-muted dropdown-toggle plus" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false" #newAccountType value="{{AccountTypeID}}">
@@ -43,7 +39,7 @@
             </div>
         </div>
     </div>
-    <li class="pt-3 pb-3 animate4 slideIn">
+    <li align="center" class="pt-3 pb-3 animate4 slideIn">
         <button class="plus text-light" (click)="add(accountName.value, accountBalance.value);">
             OK
         </button>
