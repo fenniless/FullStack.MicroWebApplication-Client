@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Profile} from '../user';
 import {UserService} from '../user.service';
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user',
@@ -13,26 +12,38 @@ export class UserComponent implements OnInit {
   selectedProfile: Profile;
   defaultName: string;
   userId: number;
+  createUser: boolean;
+
 
   @Input() profile: Profile;
-  constructor(private userService: UserService, private router: Router) {
+
+  constructor(private userService: UserService) {
     this.defaultName = 'Login';
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.createUser = false;
+
   }
 
   static enableGeneralButtons(): void {
     (document.getElementById('smallLogo') as HTMLInputElement).hidden = true;
     (document.getElementById('btnGroupDrop1') as HTMLInputElement).hidden = false;
     (document.getElementById('bigLogo') as HTMLInputElement).hidden = false;
+    (document.getElementById('createUser') as HTMLInputElement).hidden = false;
+
   }
 
   ngOnInit() {
     this.getUsers();
+    (document.getElementById('createUser') as HTMLInputElement).hidden = false;
+  }
+
+  onClick(): void {
+    this.createUser = !this.createUser;
   }
 
   getUsers(): void {
     this.userService.getUsers().subscribe(profile => this.profiles = profile);
   }
+
   onSelect(profile: Profile): void {
     this.selectedProfile = profile;
     this.defaultName = this.selectedProfile.userName;
@@ -40,5 +51,16 @@ export class UserComponent implements OnInit {
     (document.getElementById('smallLogo') as HTMLInputElement).hidden = false;
     (document.getElementById('btnGroupDrop1') as HTMLInputElement).hidden = true;
     (document.getElementById('bigLogo') as HTMLInputElement).hidden = true;
+    (document.getElementById('createUser') as HTMLInputElement).hidden = true;
+
+  }
+
+  add(firstName: string, lastName: string, userName: string): void {
+    this.userService.addUser({firstName, lastName, userName} as Profile)
+      .subscribe(
+        profile => {
+          this.profiles.push(profile);
+        }
+      );
   }
 }

@@ -14,7 +14,7 @@ const httpOptions = {
 })
 export class UserService {
    private userUrl = 'https://budgetapp-server.herokuapp.com/budget/profile';
-  // private userUrl = 'http://localhost:8080/budget/profile';
+  // private userUrl = 'http://localhost:8080/budget/profile'
   private log(message: string) {
     this.messageService.add(`ProfileService: ${message}`);
   }
