@@ -1,15 +1,15 @@
 <div class="text-center">
-    <div class="">
-        <table align="center" cellpadding="4" >
-            <td style="min-width: 241px">
+    <div class="container-fluid">
+        <div class="row" align="center" cellpadding="4" >
+            <div class="col" style="min-width: 241px">
                 <app-accounts userId={{userId}}></app-accounts>
-            </td>
-            <td>
+            </div>
+            <div class="col">
                 <app-transaction-list></app-transaction-list>
-            </td>
-            <td>
+            </div>
+            <div class="col">
                 <app-transaction (reloadComponents)="reload($event)"></app-transaction>
-            </td>
-        </table>
+            </div>
+        </div>
     </div>
 </div>
